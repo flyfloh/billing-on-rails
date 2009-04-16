@@ -1,0 +1,32 @@
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<h2>Expenditures</h2>
+
+<div class="find">
+  <% form_tag expenditures_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], :size => 35 %>
+    <%= submit_tag "Find Expenditures", :name => nil %><br />
+  <% end %>
+</div>
+
+<% @expenditure_states.sort.each do |state,expenditures| %>
+  <div class="expenditures">
+    <h3><%= pretty_state(state) %> Expenditures</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Partner</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render :partial => expenditures %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<tr>
+  <td class="num"><%= h position.count %></td>
+  <td><%= h position.title %></td>
+  <td class="num"><%= number_to_euro position.price %></td>
+  <td class="num"><%= number_to_euro position.net_total %></td>
+  <td class="num"><%= h position.tax %>%</td>
+  <% if position.bill.state < 1 %>
+  <td class="noprint"><%= link_to "edit", :controller => "positions", 
+        :action => "edit", :id => position.id %>&nbsp;
+        <%= link_to "destroy", { :controller => "positions", 
+        :action => "destroy", :id => position.id }, :confirm => "Are you sure?", 
+        :method => "post" %></td>
+  <% end %>
+</tr>

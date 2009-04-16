@@ -1,0 +1,32 @@
+<div id="subnavigation">
+  <ul>
+    <li><%= link_to "edit client", edit_client_path(@client.id) %></li>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<%= flash_notice %>
+
+<h2><%= h @client.vorname %> <%= h @client.name %></h2>
+<div id="adress">
+  <p>
+    <%= @client.firma %><br />
+    <%= @client.strasse %></br />
+    <%= @client.plz %> <%= @client.ort %>
+  </p>
+</div>
+
+<div>
+  <p>
+    Telefon: <%= @client.tel %><br />
+    E-Mail: <%= mail_to @client.email %>
+  </p>
+</div>
+
+<h3>Bills</h3>
+<ul>
+  <% for bill in @client.bills %>
+    <li><%= link_to bill.id, :controller => 'bills', :action => 'show', :id => bill.id %>
+        <%= bill.title %></li>
+  <% end %>
+</ul>

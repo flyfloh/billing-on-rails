@@ -1,0 +1,18 @@
+  <table class="positions">
+    <tr>
+      <th>Menge</th>
+      <th>Leistung</th>
+      <th>Preis / St&uuml;ck</th>
+      <th>Preis gesamt</th>
+      <th class="noprint"></th>
+    </tr>
+    <%= render :partial => @bill.positions %>
+    <tr id="position_new">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+<% end %>

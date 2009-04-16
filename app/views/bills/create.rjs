@@ -1,0 +1,4 @@
+page.insert_html :bottom, :positions, :partial => 'position', :object => @position
+page[:position_form].reset
+page.replace_html :flash_notice, flash[:notice]
+flash.discard

@@ -1,0 +1,9 @@
+  <table class="bills">
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Title</th>
+    </tr>
+    <%= render :partial => bills_table %>
+    <%= no_bills(bills_table) %>
+  </table>

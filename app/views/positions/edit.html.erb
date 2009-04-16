@@ -1,0 +1,18 @@
+<h1>Edit a Position</h1>
+
+<div class="form">
+  <%= error_messages_for :position -%>
+
+<% form_for :position, :url => { :action => "update", :id => @position.id } do |form| %>
+
+
+    <fieldset>
+    <legend>Update a Position</legend>
+
+    <%= render :partial => 'form', :object => form %>
+    
+    <%= submit_tag "save" %>
+    <%= link_to "cancel", :action => "index" %>
+  </fieldset>
+<% end %>
+</div>

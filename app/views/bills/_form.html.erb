@@ -1,0 +1,14 @@
+    <div>
+      <%= form.label :client_id %>:<br />
+      <%= form.collection_select :client_id, Client.find(:all), :id, :full_name %>
+    </div>
+
+    <div>
+      <%= form.label :title %>:<br />
+      <%= form.text_field :title, :size => 50 %>
+    </div>
+
+  <div>
+    <%= form.label :payment %>:<br />
+    <%= form.text_field :payment, :size => 20 %>
+  </div>

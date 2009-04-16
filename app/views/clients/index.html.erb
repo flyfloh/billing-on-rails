@@ -1,0 +1,24 @@
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<h2>Clients</h2>
+
+<div class="clients">
+  <table class="clients">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Firma</th>
+        <th>Name</th>
+        <th>Vorname</th>
+        <th>Open Bills</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => @clients %>
+    </tbody>
+  </table>  
+</div>

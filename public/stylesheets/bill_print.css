@@ -1,0 +1,11 @@
+div#mydata {
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+#wrapper,
+#content {
+    margin:0;
+    padding:0;
+    height:0;
+}

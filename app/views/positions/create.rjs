@@ -1,0 +1,14 @@
+page.insert_html :bottom, :positions, :partial => 'position', :object => @position
+page.replace_html :net_total, number_to_euro(@bill.net_total)
+page.replace_html :tax_total, tax(@bill)
+page.replace_html :gross_total, number_to_euro(@bill.gross_total)
+page[:position_form].reset
+
+page << "if ($('flash_notice')) {"
+  page[:flash_notice].show
+  page.replace_html :flash_notice, flash[:notice]
+page << "} else {"
+  page.insert_html :top, :content, flash_notice
+page << "}"
+
+flash.discard

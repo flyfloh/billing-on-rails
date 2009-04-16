@@ -1,0 +1,19 @@
+/*
+  stylesheet for the Tax-Sheet
+*/
+
+.sheet {
+    margin:2em auto;
+    width:75%;
+}
+h1.sheet {
+    text-align:center;
+}
+table.sheet {
+    margin: auto;
+    border: 1px solid #000;
+}
+table.sheet tr td,
+table.sheet tr th {
+    border:0;
+}

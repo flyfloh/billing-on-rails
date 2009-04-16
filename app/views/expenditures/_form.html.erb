@@ -1,0 +1,35 @@
+<div>
+  <%= form.label :bill_id, "Expenditure No." %>:<br />
+  <%= form.text_field :bill_id, :size => 10 %>
+</div>
+
+<div>
+  <%= form.label :billed_date %>:<br />
+  <%= form.date_select :billed_date, :order => [:day, :month, :year] %>
+</div>
+
+<div>
+  <%= form.label :expenditure_type_id %>:<br />
+  <%= form.collection_select(:expenditure_type_id, ExpenditureType.find(:all),:id,:title) %>
+  or create one: <%= form.text_field :type_name %>
+</div>
+
+<div>
+  <%= form.label :seller %>:<br />
+  <%= form.text_field :seller, :size => 50 %>
+</div>
+
+<div>
+  <%= form.label :name %>:<br />
+  <%= form.text_field :name, :size => 50 %>
+</div>
+
+<div>
+  <%= form.label :net_total %>:<br />
+  <%= form.text_field :net_total, :size => 8 %>
+</div>
+
+<div>
+  <%= form.label :tax %>:<br />
+  <%= form.text_field :tax, :size => 8 %>
+</div>

@@ -1,0 +1,22 @@
+<div id="subnavigation">
+  <ul>
+    <%= render :partial =>"navigation" %>
+  </ul>
+</div>
+<h2>Add an Expenditure</h2>
+
+<div class="form">
+  <%= error_messages_for :expenditure -%>
+
+
+<% form_for :expenditure, :url => { :action => "create" } do |form| %>
+  <fieldset>
+    <legend>Create a New Expenditure</legend>
+
+    <%= render :partial => 'form', :object => form %>
+  
+    <%= submit_tag "create" %>
+    <%= link_to "cancel", :action => "index" %>
+  </fieldset>
+<% end %>
+</div>

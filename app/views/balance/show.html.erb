@@ -1,0 +1,29 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "balance", :media =>"all" %>
+<% end %>
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<h2>
+  <span class="noprint"><%= link_to "&larr;", :year => @year.to_i-1 %></span>
+  Balance&nbsp;<%= header_date(@year,@month) %>
+  <span class="noprint"><%= link_to "&rarr;", :year => @year.to_i+1 %></span>
+</h2>
+
+<div class="balance">
+    <h3>Summary</h3>
+    <%= render :partial => "balance_summary", :object => { :bills => @bills, :expenditures => @expenditures} %>
+</div>
+
+<div class="bills">
+    <h3>Income</h3>
+    <%= render :partial => "bills_table", :object => @bills %>
+</div>
+
+<div class="exp">
+    <h3>Expenditures</h3>
+    <%= render :partial => "bills_table", :object => @expenditures %>
+</div>

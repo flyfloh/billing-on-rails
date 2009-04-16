@@ -1,0 +1,6 @@
+  <tr>
+    <td><%= link_to expenditure.bill_id, :controller => "expenditures",
+            :action => "show", :id => expenditure.id %></td>
+    <td><%= h expenditure.seller %></td>
+    <td><%= h expenditure.name %></td>
+  </tr>

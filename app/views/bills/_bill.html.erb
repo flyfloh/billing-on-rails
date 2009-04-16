@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to bill.id, :controller => "bills", :action => "show", :id => bill.id %></td>
+  <td><%= bill.client.name %>,&nbsp;<%= bill.client.vorname %></td>
+  <td><%= bill.title %></td>
+</tr>

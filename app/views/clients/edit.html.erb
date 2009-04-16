@@ -1,0 +1,18 @@
+<h2>Edit a Client</h2>
+
+<div class="form">
+  <%= error_messages_for :client -%>
+  
+  <% form_for @client do |form| %>
+    <fieldset>
+      <legend>Edit a Client</legend>
+
+      <%= render :partial => 'form', :object => form %>
+      
+    <%= submit_tag "save" %>
+    <%= link_to "cancel", :action => "show", :id => @client.id %>
+    
+  </fieldset>
+<% end %>
+
+</div>

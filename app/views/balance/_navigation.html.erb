@@ -1,0 +1,3 @@
+<li><%= link_to "this months balance", :action => "show", :month => Date.today.mon, :year => Date.today.year %></li>
+<li><%= link_to "this years balance", :action => "show", :month => nil, :year => Date.today.year %></li>
+<li><%= link_to "balance sheet", :action => "sheet", :year => Date.today.year %></li>

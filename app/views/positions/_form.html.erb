@@ -1,0 +1,19 @@
+<div>
+  <%= form.label :count %>:<br />
+  <%= form.text_field :count, :size => 4 %>
+</div>
+    
+<div>
+  <%= form.label :title %>:<br />
+  <%= form.text_field :title %>
+</div>
+
+<div>
+  <%= form.label :tax %>:<br />
+  <%= form.select :tax, [['19%',19],['No Tax',0],['7%',7]] %>
+</div>
+
+<div>
+  <%= form.label :price %>:<br />
+  <%= form.text_field :price, :size => 7 %>&euro;
+</div>

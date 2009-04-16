@@ -1,0 +1,19 @@
+<table class="bills">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Partner</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => bills_table %>
+    <%= no_bills(bills_table) %>
+  </tbody>
+</table>
+
+<ul>
+  <li><em>Net Sum:</em><%= number_to_euro net_total(bills_table) %></li>
+  <li><em>Tax Sum:</em><%= number_to_euro sales_total(bills_table) %></li>
+  <li><em>Gross Sum:</em><%= number_to_euro gross_total(bills_table) %></li>
+</ul>

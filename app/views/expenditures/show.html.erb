@@ -1,0 +1,26 @@
+<div id="subnavigation">
+  <ul>
+    <li><%= mark_as_paid(@expenditure) %></li>
+    <li><%= link_to "edit", :action => 'edit', :id => @expenditure.id %></li>
+    <li><%= link_to "destroy", :action => 'destroy', :id => @expenditure.id %></li>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<%= flash_notice %>
+
+<h2>Expenditure: <%= h @expenditure.name %></h2>
+<%= paid_state(@expenditure) %>
+<ul>
+  <li>Type: <%= h @expenditure.expenditure_type.title %></li>
+  <li>Seller: <%= h @expenditure.seller %></li>
+  <li>Billed Date: <%= h @expenditure.billed_date %></li>
+  <li>Bill ID: <%= h @expenditure.bill_id %></li>
+</ul>
+
+<ul>
+  <li>Net Amount: <%= h @expenditure.net_total %></li>
+  <li>Sales Tax: <%= h @expenditure.sales_total %></li>
+  <li>Gross Amount: <%= h @expenditure.gross_total %></li>
+</ul>
+

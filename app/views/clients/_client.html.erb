@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to h(client.id), client_path(client) %></td>
+  <td><%= h client.firma %></td>
+  <td><%= h client.name %></td>
+  <td><%= h client.vorname %></td>
+  <td><%= h client.billed_bills.count %><%= admonished_bills(client) %></td>
+</tr>

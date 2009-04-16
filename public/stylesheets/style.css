@@ -1,0 +1,76 @@
+
+/* Making the Footer Stick to the Bottom of the Page */
+
+html,body {
+    height:100%;
+}
+#wrapper {
+    position:relative;
+    min-height:80%;
+}
+* html #wrapper {
+    height:80%;
+}
+#content {
+    padding-bottom: 9em;
+}
+#footer {
+    position: relative;
+    margin-top: -7.5em;
+} 
+
+/* some designs */
+
+body {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+.clear {
+    clear:both;
+}
+h2 {
+    text-align:center;
+}
+h2, h3 {
+    font-size:110%;
+    font-weight:bold;
+}
+div.clients,
+div.expenditures {
+    border:1px solid #E4EDFF;
+    width:66%;
+    margin:1em auto;
+    padding:7px
+}
+
+/* Show different color for admonished bills */
+
+.admonished_bills {
+    background:#FFD4D4;
+}
+
+/* neat tables */
+
+table {
+    width:97%;
+    border:0;
+    border-collapse:collapse;
+    margin:auto;
+}
+table tr:hover {
+    background: #E4EDFF;
+}
+table tr td,
+table tr th {
+    padding:3px;
+    border-bottom:1px solid #E4EDFF;
+}
+table tr th {
+    border-bottom: 2px solid #092D74;
+    text-align:left;
+    font-weight:normal;
+    font-size:105%;
+}
+table tr td.num {
+    text-align:right;
+}

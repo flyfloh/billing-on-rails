@@ -1,0 +1,21 @@
+/* CSS for Balance view */
+
+div.balance,
+div.bills,
+div.exp {
+    margin:1em;
+    border:1px solid #E4EDFF;
+    padding:7px;
+    width:45%;
+}
+
+div.bills {
+    float:left;
+}
+div.exp {
+    float:right;
+}
+
+div.balance {
+    width:auto;
+}

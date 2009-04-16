@@ -1,0 +1,23 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "bills", :media =>"all" %>
+<% end %>
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+<%= flash_notice %>
+
+<div class="find">
+  <% form_tag bills_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], :size => 35 %>
+    <%= submit_tag "Find Bills", :name => nil %><br />
+  <% end %>
+</div>
+
+<% @bills.sort.each do |state,bills| %>
+<div class="open_bills">
+  <h2><%= pretty_state(state) %> Bills</h2>
+  <%= render :partial => "bills_table", :object => bills %>
+</div>
+<% end %>

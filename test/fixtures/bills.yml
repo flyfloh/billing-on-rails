@@ -1,0 +1,7 @@
+bill_has_one_position:
+    client: company_client
+    state: 1
+bill_has_multiple_taxes:
+    client: company_client
+    state: 1
+    

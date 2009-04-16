@@ -1,0 +1,5 @@
+<ul>
+  <li>Net Balance: <%= number_to_euro( net_balance( balance_summary[:bills], balance_summary[:expenditures] )) %></li>
+  <li>Sales Tax Balance: <%= number_to_euro( sales_balance( balance_summary[:bills], balance_summary[:expenditures] )) %></li>
+  <li>Gross Balance: <%= number_to_euro( gross_balance( balance_summary[:bills], balance_summary[:expenditures] )) %></li>
+</ul>

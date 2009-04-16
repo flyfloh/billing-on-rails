@@ -1,0 +1,24 @@
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<h2>Add a Bill</h2>
+
+<div class="form">
+  <%= error_messages_for :bill -%>
+
+
+<% form_for :bill, :url => { :action => "create" } do |form| %>
+  <fieldset>
+    <legend>Create a New Bill</legend>
+
+    <%= render :partial => 'form', :object => form %>
+  
+    <%= submit_tag "create" %>
+    <%= link_to "cancel", :action => "index" %>
+  </fieldset>
+<% end %>
+</div>
+

@@ -1,0 +1,11 @@
+/* mydata field for bills */
+
+h1,
+#navigation,
+#subnavigation,
+#footer,
+#flash_notice,
+.find,
+.noprint {
+    display:none;
+}

@@ -1,0 +1,123 @@
+body {
+    padding:0;
+    margin:0;
+}
+h1 {
+    height: 3em;
+    margin: 0 0 0 0;
+    padding: 7px;
+    background: #092D74;
+    font-weight:bold;
+    font-size:130%;
+    text-align:center;
+    color: #fff;
+}
+h1 #subtitle {
+    font-size:80%;
+    font-weight:normal;
+    margin:0;
+}
+a {
+    color:#00f;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
+}
+
+/* Layout IDs */
+
+#navigation, #footer {
+    background:#7EA9FF;
+    margin:0;
+    height:37px;
+    width:100%;
+    border-bottom:1px solid #092D74;
+}
+#footer {
+    border-bottom:0;
+    border-top:1px solid #092D74;
+    clear:both;
+    padding: 10px 10px 0 10px;
+    height:30px;
+    width:auto;
+    color:#fff;
+    font-weight:bold;
+}
+#navigation ul {
+    margin:0;
+    padding:10px;
+    list-style-type:none;
+}
+#navigation ul li {
+    float:left;
+}
+#navigation ul li a {
+    padding: 10px 12px;
+    font-weight:bold;
+    color:#fff;
+}
+#navigation ul li a:hover {
+    text-decoration:none;
+    background: #092D74;
+}
+div#subnavigation {
+    background: #ddd;
+    border-bottom: 1px solid #bbb;
+    margin: 0 0 2em 0;
+    height:27px;
+    width:100%;
+}
+#subnavigation ul {
+    margin:0;
+    padding:5px;
+    list-style-type:none;
+}
+#subnavigation ul li {
+    float:left;
+}
+#subnavigation ul li a {
+    padding: 8px 8px 6px 8px;
+    font-weight:bold;
+    font-size:80%;
+    color:#7EA9FF;
+}
+#subnavigation ul li a:hover {
+    text-decoration:none;
+    background: #092D74;
+}
+#flash_notice {
+    position:fixed;
+    top:0;
+    background: #fbb;
+    border-bottom: 1px solid #fdd;
+    width:100%;
+    margin-left:-8px;
+    padding:5px 10px 5px 10px;
+    font-size:110%;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* Search Fields */
+
+div.find {
+    text-align:right;
+    padding:15px 7px;
+    width:66%;
+    margin:1em auto;
+    border:1px solid #E4EDFF;
+}
+
+
+/* Ruby Form Errors */
+
+div.errorExplanation {
+    background: #ffcfcf;
+    border: 1px solid #ffa0a0;
+    padding: 5px;
+    margin: 2em;
+}
+div.fieldWithErrors input {
+    background-color: #ffcfcf;
+}

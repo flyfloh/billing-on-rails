@@ -1,0 +1,68 @@
+/*
+  Stylesheet for the Bill#show Action
+*/
+
+/* this is from screen.css might be neccessary to move */
+
+div#mydata {
+    margin: 5em auto 5em auto;
+    width:100%;
+}
+p.state {
+    color:#f00;
+}
+
+
+/* this is safe */
+
+h2.company_logo {
+    text-align:left;
+    width:314px;
+    height:128px;
+}
+#bill {
+    width:95%;
+    margin:auto;
+}
+p#myadress {
+    font-size: 75%;
+}
+div#bill_data {
+    float:right;
+    text-align:right;
+}
+div#adress {
+    margin: 3em auto 5em auto;
+}
+table.positions {
+    border: 1px solid #000;
+    width:97%;
+}
+table.positions tr th,
+table.positions tr td {
+    border:1px solid #000;
+}
+div#total {
+    margin: 2em 0 2em 0;
+    text-align:right;
+}
+div#total p {
+    margin:0;
+}
+div#total p#gross {
+    margin-top:1em;
+    font-size:120%;
+}
+div#mydata div {
+    float:left;
+    font-size:75%;
+} 
+div#mydata div p{
+    margin:0;
+}
+.state {
+    float:right;
+    font-style:italic;
+    margin:8px 30px;
+    text-align:right;
+}

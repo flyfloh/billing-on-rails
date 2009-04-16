@@ -1,0 +1,84 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "sheet", :media => "all" %>
+<% end %>
+
+<div id="subnavigation">
+  <ul>
+    <%= render :partial => "navigation" %>
+  </ul>
+</div>
+
+<div id="adress">
+  <%= @company.name %>, Inh. <%= @company.owner %><br />
+  <%= @company.street %><br />
+  <%= h @company.plz %>&nbsp;<%= h @company.city %><br />
+  Steuernummer: <%= h @company.tax_no %>
+</div>
+
+<h2 class="sheet">
+  <span class="noprint"><%= link_to "&larr;", :year => @year.to_i-1 %></span>
+  Gewinnermittlung <%= @year %>
+  <span class="noprint"><%= link_to "&rarr;", :year => @year.to_i+1 %></span>
+</h2>
+
+<h3 class="sheet">Betriebseinnahmen:</h3>
+<table class="sheet">
+  <tr>
+    <td colspan="2">Erl&ouml;se aus Lieferungen und Leistungen (19% USt)</td>
+  </tr>
+  <tr>
+    <td>Aus Auftrag zu 19%:</td>
+    <td class="num"><%= number_to_euro net_total(@bills) %></td>
+  </tr>
+  <tr>
+    <td>Umsatzsteuer auf Lieferungen/Leistungen ( 19% USt.):</td>
+    <td class="num"><%= number_to_euro sales_total(@bills) %></td>
+  </tr>
+  <tr>
+    <td>vom Finanzamt erstattete Umsatzsteuer:</td>
+    <td class="num"><%= number_to_euro sales_total(@expenditures) %></td>
+  </tr>
+  <tr>
+    <td><b>Summe der Betriebseinnahmen:</b></td>
+    <td class="num"><b><%= number_to_euro earned(@bills,@expenditures) %></b></td>
+  </tr>
+</table>
+
+<h3 class="sheet">Betriebsausgaben:</h3>
+<table class="sheet">
+  <% for type in @expenditure_types %>
+    <tr>
+      <td><%= type.title %></td>
+      <td class="num"><%= number_to_euro net_total(type.find_expenditures(:year => @year, :billed => @company.billed_date_relevant)) %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>Vorsteuer</td>
+    <td class="num"><%= number_to_euro sales_total(@expenditures) %></td>
+  </tr>
+  <tr>
+    <td>an das Finanzamt gezahlte Umsatzsteuer</td>
+    <td class="num"><%= number_to_euro sales_total(@bills) %></td>
+  </tr>
+  <tr>
+    <td><b>Summe der Betriebsausgaben</b></td>
+    <td class="num"><b><%= number_to_euro expended(@bills,@expenditures) %></b></td>
+  </tr>
+</table>
+
+<h3 class="sheet">Ermittlung des Gewinns:</h3>
+
+<table class="sheet">
+  <tr>
+    <td>Summe der Betriebseinnahmen</td>
+    <td class="num"><%= number_to_euro earned(@bills,@expenditures) %></td>
+  </tr>
+  <tr>
+    <td>abzüglich Summe der Betriebsausgaben</td>
+    <td class="num"><%= number_to_euro expended(@bills,@expenditures) %></td>
+  </tr>
+  <tr>
+    <td><b>Gewinn</b></td>
+    <td class="num"><b><%= number_to_euro( earned(@bills,@expenditures)-expended(@bills,@expenditures) )%></b></td>
+  </tr>
+</table>

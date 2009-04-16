@@ -1,0 +1,24 @@
+easy_position:
+    bill: bill_has_one_position
+    count: 1000
+    price: 1
+    tax: 19
+    title: position no. 1
+other_easy_position:
+    bill: bill_has_multiple_taxes
+    count: 10
+    price: 1
+    tax: 19
+    title: position no. 2
+seven_percent_position:
+    bill: bill_has_multiple_taxes
+    count: 10
+    price: 1
+    tax: 7
+    title: position no. 3
+yet_another_easy_position:
+    bill: bill_has_multiple_taxes
+    count: 100
+    price: 1
+    tax: 19
+    title: position no. 2
