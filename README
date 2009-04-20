@@ -2,7 +2,7 @@
 
 Billing on Rails is a simple Billing Application written in Ruby on Rails and licensed under GPLv3 (see LICENSE file for details).
 
-To start you currently have to add a Company with the ID 1 to the database manually.
+Migration 012 creates a company for you now, you can edit this by clicking "Edit Company" in the app.
 You can put your company's logo into public/images/logo.gif and edit the .css files to your liking, in order to make them fit to your exisiting bill design.
 
 I hope you like this software. If you have any questions, ug reports or suggestions please contact me at github.com (My Nickname is: flyfloh) or at my Blog: http://blog.fly-soft.de.
