@@ -10,7 +10,7 @@
 
 <div>
   <%= form.label :expenditure_type_id %>:<br />
-  <%= form.collection_select(:expenditure_type_id, ExpenditureType.find(:all),:id,:title) %>
+  <%= form.collection_select(:expenditure_type_id, ExpenditureType.find(:all),:id,:title, :prompt => "Select a type:") %>
   or create one: <%= form.text_field :type_name %>
 </div>
 
