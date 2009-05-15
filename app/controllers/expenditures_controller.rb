@@ -21,7 +21,7 @@ class ExpendituresController < ApplicationController
     @expenditure.state = 1
     if @expenditure.save
       flash[:notice] = 'Expenditure successully created.'
-      redirect_to_exenditure
+      redirect_to_exenditure @expenditure
     else
       render :action =>"new"
     end

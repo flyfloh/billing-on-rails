@@ -4,4 +4,12 @@ bill_has_one_position:
 bill_has_multiple_taxes:
     client: company_client
     state: 1
-    
+bill_is_open:
+    client: company_client
+    state: 0
+bill_is_billed:
+    client: company_client
+    state: 1
+bill_is_paid:
+    client: company_client
+    state: 3
