@@ -7,7 +7,7 @@ class Expenditure < ActiveRecord::Base
   validates_presence_of :bill_id
   validates_presence_of :seller
   validates_presence_of :billed_date
-  validates_presence_of :expenditure_type
+#  validates_presence_of :expenditure_type
   
   def self.get_expenditures(props)
     year = props.fetch(:year,0)
