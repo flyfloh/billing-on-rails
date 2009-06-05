@@ -1,6 +1,9 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "expenditure", :media => "all" %>
+<% end %>
+
 <div id="subnavigation">
   <ul>
-    <li><%= mark_as_paid(@expenditure) %></li>
     <li><%= link_to "edit", :action => 'edit', :id => @expenditure.id %></li>
     <li><%= link_to "destroy", :action => 'destroy', :id => @expenditure.id %></li>
     <%= render :partial => "navigation" %>
@@ -9,18 +12,53 @@
 
 <%= flash_notice %>
 
-<h2>Expenditure: <%= h @expenditure.name %></h2>
-<%= paid_state(@expenditure) %>
-<ul>
-  <li>Type: <%= h @expenditure.expenditure_type.title %></li>
-  <li>Seller: <%= h @expenditure.seller %></li>
-  <li>Billed Date: <%= h @expenditure.billed_date %></li>
-  <li>Bill ID: <%= h @expenditure.bill_id %></li>
-</ul>
+<h2><%= h @expenditure.name %></h2>
 
-<ul>
-  <li>Net Amount: <%= h @expenditure.net_total %></li>
-  <li>Sales Tax: <%= h @expenditure.sales_total %></li>
-  <li>Gross Amount: <%= h @expenditure.gross_total %></li>
-</ul>
+<div id="container">
 
+  <dl class="info">
+      <dt>Expenditure ID:</dt>
+      <dd><%= h @expenditure.bill_id %></dd>
+  </dl>
+
+  <div id="billed_date_box">
+    Billed Date:<br />
+    <span class="date"><%= (pretty_date @expenditure.billed_date).strftime("%d. %B %Y") %></span>
+  </div>
+
+  <div id="paid_date_box">
+    Paid Date:<br />
+    <span id="paid_date">
+      <% if @expenditure.state < 3 %>
+        This Expenditure is not paid yet!
+        <%= render :partial => 'paid_form', :object => @expenditure %>
+      <%  else %>
+          <span class="date"><%= (pretty_date @expenditure.paid_date).strftime("%d. %B %Y") %></span>
+      <% end %>
+    </span>
+  </div>
+
+  <div id="net_total_box">
+    Net Total:<br />
+    <span class="num"><%= number_to_euro @expenditure.net_total %></span>
+  </div>
+
+  <div id="tax_box">
+    Sales Tax:<br />
+    <span class="num"><%= number_to_euro @expenditure.sales_total %></span>
+  </div>
+
+  <div id="gross_total_box">
+    Gross Total:<br />
+    <span class="num"><%= number_to_euro @expenditure.gross_total %></span>
+  </div>
+
+  <p style="clear:left;"></p>
+
+  <dl class="info">
+    <dt>Type:</dt>
+    <dd><%= h @expenditure.expenditure_type.title %></dd>
+    <dt>Seller:</dt>
+    <dd><%= h @expenditure.seller %></dd>
+  </dl>
+</div>

@@ -21,7 +21,7 @@ class ExpendituresController < ApplicationController
     @expenditure.state = 1
     if @expenditure.save
       flash[:notice] = 'Expenditure successully created.'
-      redirect_to_exenditure
+      redirect_to_expenditure @expenditure
     else
       render :action =>"new"
     end
@@ -45,14 +45,17 @@ class ExpendituresController < ApplicationController
   end
   
   def paid
+    @expenditure.update_attributes(params[:expenditure])
     @expenditure.state = 3
-    @expenditure.paid_date = Time.now
+    # TODO: add error-display for ajax positions
     if @expenditure.save
       flash[:notice] = "Expenditure now marked as paid"
-      redirect_to_expenditure(@expenditure)
+      respond_to do |format|
+        format.html { redirect_to_expenditure(@expenditure) }
+        format.js
+      end
     else
-      flash[:notice] = "Could not mark Expenditure as paid"
-      redirect_to_expenditure(@expenditure)
+      render :action => 'new'
     end
   end
   

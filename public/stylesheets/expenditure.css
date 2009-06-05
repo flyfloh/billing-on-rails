@@ -1,0 +1,46 @@
+/* 
+    Document   : expenditure_show
+    Created on : 04.06.2009, 19:00:46
+    Author     : flyfloh
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+div#billed_date_box,
+div#paid_date_box,
+div#net_total_box,
+div#tax_box,
+div#gross_total_box {
+    border:1px solid #E4EDFF;
+    width:42%;
+    margin:1em;
+    padding:7px;
+    float:left;
+    font-size:110%;
+}
+div#gross_total_box {
+    width:42%;
+}
+div#net_total_box,
+div#gross_total_box {
+    clear:left;
+}
+span.num {
+    font-size:117%;
+    margin-left:3em;
+}
+span.date {
+    margin-left:3em;
+}
+dl.info {
+    margin:1em;
+}
+dl.info dt {
+    float:left;
+    font-weight:bold;
+    padding:7px;
+}
+dl.info dd {
+    padding:7px;
+}

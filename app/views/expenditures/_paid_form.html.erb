@@ -1,0 +1,4 @@
+<% form_remote_for :expenditure, :url => {:action => 'paid', :id => paid_form.id }, :html => { :method => :put } do |form| %>
+    <%= form.date_select(:paid_date, :order => [:day, :month, :year]) %>
+  <%= submit_tag "mark as paid" %>
+<% end %>

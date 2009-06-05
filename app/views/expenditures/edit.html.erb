@@ -10,11 +10,18 @@
   <%= error_messages_for :expenditure -%>
 
 
-<% form_for :expenditure, :url => { :action => "update", :id => @expenditure.id } do |form| %>
+<% form_for :expenditure, @expenditure, :url => expenditure_path(@expenditure), :html => {:method => :put} do |form| %>
   <fieldset>
     <legend>Edit an existing Expenditure</legend>
 
     <%= render :partial => 'form', :object => form %>
+
+    <% unless @expenditure.state < 3 %>
+    <div>
+      <%= form.label :paid_date %>:<br />
+      <%= form.date_select :paid_date, :order => [:day, :month, :year] %>
+    </div>
+    <% end %>
     
     <%= submit_tag "save" %>
     <%= link_to "cancel", :action => "index" %>

@@ -9,7 +9,7 @@
   <%= error_messages_for :expenditure -%>
 
 
-<% form_for :expenditure, :url => { :action => "create" } do |form| %>
+<% form_for :expenditure, :url => expenditures_path do |form| %>
   <fieldset>
     <legend>Create a New Expenditure</legend>
 

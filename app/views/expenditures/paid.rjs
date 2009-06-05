@@ -1,0 +1,10 @@
+page.replace_html :paid_date, (pretty_date @expenditure.paid_date).strftime("%d. %B %Y")
+
+page << "if ($('flash_notice')) {"
+  page[:flash_notice].show
+  page.replace_html :flash_notice, flash[:notice]
+page << "} else {"
+  page.insert_html :top, :content, flash_notice
+page << "}"
+
+flash.discard

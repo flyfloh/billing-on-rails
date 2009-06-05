@@ -29,4 +29,8 @@ module ApplicationHelper
     year = props.fetch(:year,1970)
     Time.mktime(year, month, day)
   end
+
+  def pretty_date(date)
+    to_date(:year => date.year, :month => date.month, :day => date.day)
+  end
 end

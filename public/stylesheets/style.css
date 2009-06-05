@@ -3,6 +3,8 @@
 
 html,body {
     height:100%;
+    font-family:Helvetica, Arial, Verdana, sans-serif;
+    font-size:12pt;
 }
 #wrapper {
     position:relative;
@@ -40,7 +42,7 @@ div.expenditures {
     border:1px solid #E4EDFF;
     width:66%;
     margin:1em auto;
-    padding:7px
+    padding:7px;
 }
 
 /* Show different color for admonished bills */
@@ -73,4 +75,21 @@ table tr th {
 }
 table tr td.num {
     text-align:right;
+}
+#container {
+    margin:auto;
+    width:60%;
+}
+div.find_bills {
+    text-align:right;
+    padding:15px;
+}
+div.find_bills,
+div.open_bills,
+div.billed_bills,
+div.paid_bills {
+    width:66%;
+    margin:1em auto;
+    border:1px solid #E4EDFF;
+    padding:7px;
 }
