@@ -14,6 +14,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :bank
       t.timestamps
     end
+    execute "INSERT INTO companies (id,name) VALUES (1,'My first Company');"
   end
 
   def self.down

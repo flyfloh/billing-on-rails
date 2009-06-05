@@ -36,7 +36,7 @@ div#adress {
 }
 table.positions {
     border: 1px solid #000;
-    width:97%;
+    width:100%;
 }
 table.positions tr th,
 table.positions tr td {
