@@ -5,7 +5,7 @@
 
 <div id="subnavigation">
   <ul style="width:75%;float:left;">
-    <%= add_position(@bill) %>
+    <li><%= link_to "new position", new_bill_position_path(@bill) %></li>
     <li><%= close_bill(@bill) %></li>
     <li><%= link_to "edit", edit_bill_path(@bill) %></li>
     <li><%= destroy_bill(@bill) %></li>
@@ -57,7 +57,7 @@
   </tbody>
 </table>
 <div class="noprint">
-<% form_remote_for :position, :url => {:controller => "positions", :action => "create", :bill_id => @bill.id}, :html => { :id => "position_form" } do |form| %>
+<% form_remote_for :position, :url => bill_positions_path(@bill), :html => { :id => "position_form" } do |form| %>
   <%= form.text_field :count, :size => 2 %>
   <%= form.text_field :title %>
   <%= form.text_field :price, :size => 5 %>&nbsp;&euro;

@@ -13,10 +13,6 @@ module BillsHelper
     return link_to("destroy", bill_path(bill), :method => :delete, :confirm => "Are you sure?")
   end
   
-  def add_position(bill)
-    return content_tag( "li", link_to("add position", :controller => "positions", :action => "new", :bill_id => bill.id)) if bill.state < 1
-  end
-  
   def bill_state(bill)
     return 'class="open_bills"' if bill.state == 0
     return 'class="billed_bills"' if bill.state == 1

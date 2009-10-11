@@ -43,16 +43,11 @@ ActionController::Routing::Routes.draw do |map|
   map.balance 'balance/:year', :controller => "balance", :action => "show",
       :year => /\d+/
 
-  # Positions
-  map.positions 'bills/:bill_id/positions/:action', :controller => "positions"
-  map.positions 'positions/:action/:id', :controller => "positions"
-  
-  
   # Homepage
   map.homepage '', :controller => 'homepage', :action => 'index'
   
   #RESTful Routes
-  map.resources :bills
+  map.resources :bills, :has_many => :positions
   map.resources :clients
   map.resources :expenditures
 

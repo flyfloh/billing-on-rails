@@ -13,7 +13,7 @@ class PositionsController < ApplicationController
     if @bill.positions << @position
       flash[:notice] = "Position successfully created."
       respond_to do |format|
-        format.html { redirect_to_bill }
+        format.html { redirect_to_bill "Position successfully created" }
         format.js
       end
     else
