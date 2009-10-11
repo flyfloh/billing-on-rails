@@ -16,60 +16,61 @@
 
 <%= flash_notice %>
 
-<div id="bill">
-  <div id="bill_data">
-    Kundennummer: <%= h @bill.client.id %><br />
-    Rechnungsnummer: <%= h @bill.id %><br />
-    Datum: <%= @bill.date %><br />
-    Zahlung: <%= h @bill.payment %>
-  </div>
+<div id="bill_data">
+  Kundennummer: <%= h @bill.client.id %><br />
+  Rechnungsnummer: <%= h @bill.id %><br />
+  Datum: <%= @bill.date %><br />
+  Zahlung: <%= h @bill.payment %>
+</div>
 
 <h2 class="company_logo"><%= image_tag "logo.gif", :alt => "Company Logo" %></h2>
 
-  <p id="myadress"><%= h @company.name %>, Inh. <%= h @company.owner %>, 
-  <%= h @company.street %>, <%= h @company.plz %> <%= h @company.city %></p>
+<p id="myadress">
+  <%= h @company.name %>, Inh. <%= h @company.owner %>,
+  <%= h @company.street %>, <%= h @company.plz %> <%= h @company.city %>
+</p>
 
-  <div id="adress">
-    <%= h @bill.client.firma %><br />
-    <%= h @bill.client.vorname %>&nbsp;<%= h @bill.client.name %><br />
-    <%= h @bill.client.strasse %><br />
-    <%= h @bill.client.plz %>&nbsp;<%= h @bill.client.ort %>
-  </div>
+<adress>
+  <%= h @bill.client.firma %><br />
+  <%= h @bill.client.vorname %>&nbsp;<%= h @bill.client.name %><br />
+  <%= h @bill.client.strasse %><br />
+  <%= h @bill.client.plz %>&nbsp;<%= h @bill.client.ort %>
+</adress>
 
-  <h3>Rechnung <%= h @bill.title %></h3>
+<h3>Rechnung <%= h @bill.title %></h3>
 
-  <table class="positions">
-    <thead>
-      <tr>
-        <th>Menge</th>
-        <th>Leistung</th>
-        <th>Netto-Preis / St&uuml;ck</th>
-        <th>Netto-Preis gesamt</th>
-        <th>Ust.-Satz</th>
-        <% if @bill.state < 1 %>
-          <th class="noprint"></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody id="positions">
-        <%= render :partial => @bill.positions %>
-    </tbody>
-  </table>
-  <div class="noprint">
-  <% form_remote_for :position, :url => {:controller => "positions", :action => "create", :bill_id => @bill.id}, :html => { :id => "position_form" } do |form| %>
-    <%= form.text_field :count, :size => 2 %>
-    <%= form.text_field :title %>
-    <%= form.text_field :price, :size => 5 %>&nbsp;&euro;
-    <%= form.select :tax, [['19%',19],['No Tax',0],['7%',7]] %>
-    <%= submit_tag "create" %>
-  <% end %>
-  </div>
+<table class="positions">
+  <thead>
+    <tr>
+      <th>Menge</th>
+      <th>Leistung</th>
+      <th>Netto-Preis / St&uuml;ck</th>
+      <th>Netto-Preis gesamt</th>
+      <th>Ust.-Satz</th>
+      <% if @bill.state < 1 %>
+        <th class="noprint"></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody id="positions">
+      <%= render :partial => @bill.positions %>
+  </tbody>
+</table>
+<div class="noprint">
+<% form_remote_for :position, :url => {:controller => "positions", :action => "create", :bill_id => @bill.id}, :html => { :id => "position_form" } do |form| %>
+  <%= form.text_field :count, :size => 2 %>
+  <%= form.text_field :title %>
+  <%= form.text_field :price, :size => 5 %>&nbsp;&euro;
+  <%= form.select :tax, [['19%',19],['No Tax',0],['7%',7]] %>
+  <%= submit_tag "create" %>
+<% end %>
+</div>
 
-  <div id="total">
-    <p><b>Gesamtpreis Netto:</b>&nbsp;<span id="net_total"><%= number_to_euro @bill.net_total %></span></p>
-    <span id="tax_total"><%= tax @bill %></span>
-    <p id="gross"><b>Gesamtpreis Brutto:</b>&nbsp;<span id="gross_total"><%= number_to_euro @bill.gross_total %></span></p>
-  </div>
+<div id="total">
+  <p><b>Gesamtpreis Netto:</b>&nbsp;<span id="net_total"><%= number_to_euro @bill.net_total %></span></p>
+  <span id="tax_total"><%= tax @bill %></span>
+  <p id="gross"><b>Gesamtpreis Brutto:</b>&nbsp;<span id="gross_total"><%= number_to_euro @bill.gross_total %></span></p>
+</div>
 
   <div id="mydata">
     <div style="width:30%;">
@@ -90,5 +91,3 @@
       <p><%= h @company.bank %></p>
     </div>
   </div>
-  
-</div>

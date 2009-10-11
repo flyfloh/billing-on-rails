@@ -12,9 +12,9 @@
 ActiveRecord::Schema.define(:version => 20090407082042) do
 
   create_table "bills", :force => true do |t|
-    t.integer  "client_id",   :limit => 11
+    t.integer  "client_id"
     t.string   "title"
-    t.integer  "state",       :limit => 11
+    t.integer  "state"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "payment"
@@ -66,25 +66,25 @@ ActiveRecord::Schema.define(:version => 20090407082042) do
     t.string   "seller"
     t.string   "name"
     t.date     "billed_date"
-    t.decimal  "net_total",                         :precision => 8, :scale => 2
+    t.decimal  "net_total",           :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "paid_date"
-    t.decimal  "tax",                               :precision => 8, :scale => 2
-    t.integer  "state",               :limit => 11
-    t.integer  "expenditure_type_id", :limit => 11
+    t.decimal  "tax",                 :precision => 8, :scale => 2
+    t.integer  "state"
+    t.integer  "expenditure_type_id"
   end
 
   add_index "expenditures", ["expenditure_type_id"], :name => "index_expenditures_on_expenditure_type_id"
 
   create_table "positions", :force => true do |t|
-    t.integer  "bill_id",    :limit => 11
+    t.integer  "bill_id"
     t.string   "title"
     t.float    "count"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price",                    :precision => 8, :scale => 2
-    t.integer  "tax",        :limit => 11
+    t.decimal  "price",      :precision => 8, :scale => 2
+    t.integer  "tax"
   end
 
   add_index "positions", ["bill_id"], :name => "index_positions_on_bill_id"

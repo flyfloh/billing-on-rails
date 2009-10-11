@@ -1,6 +1,14 @@
+table.positions {
+    font-size:90%;
+}
 div#mydata {
     position:fixed;
     bottom:0;
+    margin-bottom:0;
+    width:100%;
+    font-size:85%;
+}
+div#bill {
     width:100%;
 }
 #wrapper,
