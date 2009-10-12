@@ -1,15 +1,7 @@
-<<<<<<< HEAD:public/stylesheets/bill_print.css
 table.positions {
     font-size:90%;
 }
 #mydata {
-=======
-
-body {
-    font-size:90%;
-}
-div#mydata {
->>>>>>> 4240028b9bdd8970991c296191a1e44e4ca2cfff:public/stylesheets/bill_print.css
     position:fixed;
     bottom:0;
     margin-bottom:0;
