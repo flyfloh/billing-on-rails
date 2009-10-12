@@ -5,8 +5,9 @@ module BillsHelper
   end
   
   def close_bill(bill)
-    return link_to('close', :action => 'close', :id => bill.id) if bill.state == 0
-    return link_to('mark as paid', :action => 'close', :id => bill.id) if bill.state == 1
+    text = "close" if bill.state == 0
+    text = "mark as paid" if bill.state == 1
+    return link_to text, close_bill_path(bill), :method => :post unless bill.state > 1
   end
   
   def destroy_bill(bill)

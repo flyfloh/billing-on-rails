@@ -4,7 +4,7 @@
 
 /* this is from screen.css might be neccessary to move */
 
-div#mydata {
+#mydata {
     margin: 5em auto 5em auto;
     width:100%;
 }
@@ -27,9 +27,10 @@ h2.company_logo {
 p#myadress {
     font-size: 75%;
 }
-div#bill_data {
+#bill_data {
     float:right;
     text-align:right;
+    list-style-type:none;
 }
 table.positions {
     border: 1px solid #000;

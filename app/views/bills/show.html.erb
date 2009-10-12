@@ -16,12 +16,12 @@
 
 <%= flash_notice %>
 
-<div id="bill_data">
-  Kundennummer: <%= h @bill.client.id %><br />
-  Rechnungsnummer: <%= h @bill.id %><br />
-  Datum: <%= @bill.date %><br />
-  Zahlung: <%= h @bill.payment %>
-</div>
+<ul id="bill_data">
+  <li>Kundennummer: <%= h @bill.client.id %></li>
+  <li>Rechnungsnummer: <%= h @bill.id %></li>
+  <li>Datum: <%= @bill.date %></li>
+  <li>Zahlung: <%= h @bill.payment %></li>
+</ul>
 
 <h2 class="company_logo"><%= image_tag "logo.gif", :alt => "Company Logo" %></h2>
 
@@ -56,15 +56,14 @@
       <%= render :partial => @bill.positions %>
   </tbody>
 </table>
-<div class="noprint">
-<% form_remote_for :position, :url => bill_positions_path(@bill), :html => { :id => "position_form" } do |form| %>
+
+<% form_remote_for :position, :url => bill_positions_path(@bill), :html => { :id => "position_form", :class => "noprint"} do |form| %>
   <%= form.text_field :count, :size => 2 %>
   <%= form.text_field :title %>
   <%= form.text_field :price, :size => 5 %>&nbsp;&euro;
   <%= form.select :tax, [['19%',19],['No Tax',0],['7%',7]] %>
   <%= submit_tag "create" %>
 <% end %>
-</div>
 
 <div id="total">
   <p><b>Gesamtpreis Netto:</b>&nbsp;<span id="net_total"><%= number_to_euro @bill.net_total %></span></p>

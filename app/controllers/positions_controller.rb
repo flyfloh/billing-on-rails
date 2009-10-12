@@ -13,7 +13,7 @@ class PositionsController < ApplicationController
     if @bill.positions << @position
       flash[:notice] = "Position successfully created."
       respond_to do |format|
-        format.html { redirect_to_bill "Position successfully created" }
+        format.html { redirect_to bill_path(@bill) }
         format.js
       end
     else
@@ -71,7 +71,6 @@ class PositionsController < ApplicationController
   
   def redirect_to_bill(notice)
     flash[:notice] = notice
-    redirect_to :controller => "bills",
-        :action => "show", :id => choose_bill.id
+    redirect_to bill_path(choose_bill)
   end
 end

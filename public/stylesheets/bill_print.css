@@ -1,7 +1,7 @@
 table.positions {
     font-size:90%;
 }
-div#mydata {
+#mydata {
     position:fixed;
     bottom:0;
     margin-bottom:0;
