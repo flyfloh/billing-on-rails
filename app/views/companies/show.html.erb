@@ -1,0 +1,42 @@
+<h2><%= h @company.name %></h2>
+
+<% if @company.company_logo %>
+  <% image_tag company_logo_path(@company.company_logo), :alt => "Company Logo" %>
+<% else %>
+  <% form_for CompanyLogo.new, :html => {:multipart => true} do |f| %>
+    <%= f.label :uploaded_picture %>
+    <%= f.file_field :uploaded_picture %>
+    <%= f.submit "add logo" %>
+  <% end %>
+<% end %>
+
+<p><%= link_to "edit", edit_company_path(@company) %></p>
+
+<dl>
+  <dd>Name:</dd>
+  <dt><%= h @company.name %></dt>
+  <dd>Owner:</dd>
+  <dt><%= h @company.owner %></dt>
+  <dd>Street:</dd>
+  <dt><%= h @company.street %></dt>
+  <dd>Postcode:</dd>
+  <dt><%= h @company.plz %></dt>
+  <dd>City:</dd>
+  <dt><%= h @company.city %></dt>
+  <dd>Tax No:</dd>
+  <dt><%= h @company.tax_no %></dt>
+  <dd>Tax Type:</dd>
+  <dt><%= h @company.billed_date_relevant %></dt>
+  <dd>Telephone:</dd>
+  <dt><%= h @company.tel %></dt>
+  <dd>E-Mail:</dd>
+  <dt><%= h @company.email %></dt>
+  <dd>Web:</dd>
+  <dt><%= h @company.web %></dt>
+  <dd>Account No:</dd>
+  <dt><%= h @company.account_no %></dt>
+  <dd>Bank Code:</dd>
+  <dt><%= h @company.bank_code %></dt>
+  <dd>Bank:</dd>
+  <dt><%= h @company.bank %></dt>
+</dl>

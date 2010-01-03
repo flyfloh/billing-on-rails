@@ -2,7 +2,11 @@ class CompaniesController < ApplicationController
   before_filter :require_user
   before_filter :find_user
   before_filter :get_company
-  
+
+  def show
+    @company = @user.company
+  end
+
   def edit
   end
   

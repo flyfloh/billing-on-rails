@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_filter :find_client, :except => [:index, :new, :create]
 
   def index
-    @clients = Client.find(:all, :order => :firma)
+    @clients = @user.clients
   end
 
   def show
@@ -41,6 +41,7 @@ class ClientsController < ApplicationController
   private
   
   def find_client
+    # TODO: restrict this to user's clients
     @client = Client.find_by_id(params[:id])
   end
 end

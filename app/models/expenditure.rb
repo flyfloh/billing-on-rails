@@ -1,7 +1,10 @@
 class Expenditure < ActiveRecord::Base
   attr_accessor :type_name
   before_save :add_expenditure_type
+  
   belongs_to :expenditure_type
+  belongs_to :user
+  
   validates_numericality_of :net_total, :greater_than_or_equal_to => 0
   validates_numericality_of :tax, :greather_than_or_equal_to => 0
   validates_presence_of :bill_id
