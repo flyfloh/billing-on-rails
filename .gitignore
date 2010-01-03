@@ -3,6 +3,4 @@ log/*.log
 log/*.pid
 tmp/**/*
 config/database.yml
-nbproject/
-nbproject/*
-nbproject/**/*
+nbproject
