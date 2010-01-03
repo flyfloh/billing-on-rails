@@ -5,8 +5,10 @@
     <%= stylesheet_link_tag "print", :media => "print" %>
     <%= javascript_include_tag :defaults %>
     <%= yield :head %>
+
     <title><%= yield(:title) || "Billing On Rails" %></title>
   </head>
+
   <body>
     <div id="head">
       <%= link_to content_tag(:h1), root_url %>
@@ -15,7 +17,7 @@
           <li><%= link_to "Balance", balance_path(:year => Time.now.year) %></li>
           <li><%= link_to "Bills", bills_path %></li>
           <li><%= link_to "Clients", clients_path %></li>
-          <li><%= link_to "Company", :controller => 'companies', :action => 'edit' %></li>
+          <li><%= link_to "Company", company_path(@user.company) %></li>
           <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
         <% end %>
         <li><%= link_to "About", about_path %></li>

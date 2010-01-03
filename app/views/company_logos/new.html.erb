@@ -1,0 +1,12 @@
+<% form_for @company_logo, :html => {:multipart => true} do |f| %>
+  <%= error_messages_for :company_logo %>
+
+  <div>
+    <%= f.label :uploaded_picture %>:<br>
+    <%= f.file_field :uploaded_picture %>
+  </div>
+
+  <div>
+    <%= f.submit "add logo" %>
+  </div>
+<% end %>

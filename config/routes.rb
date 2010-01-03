@@ -22,7 +22,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :bills, :member => { :close => :post}, :has_many => :positions
   map.resources :clients
   map.resources :expenditures
-  map.resources :users
+  map.resources :users, :only => [:new, :create]
+  map.resources :companies
+  map.resources :company_logos, :except => [:index, :edit, :update]
 
   map.resource :user_session
 

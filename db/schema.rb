@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100103151023) do
+ActiveRecord::Schema.define(:version => 20100103152801) do
 
   create_table "bills", :force => true do |t|
     t.integer  "client_id"
@@ -61,8 +61,17 @@ ActiveRecord::Schema.define(:version => 20100103151023) do
     t.string   "owner"
     t.boolean  "billed_date_relevant"
     t.integer  "user_id"
-    t.binary   "company_logo"
   end
+
+  create_table "company_logos", :force => true do |t|
+    t.integer  "company_id"
+    t.string   "content_type"
+    t.binary   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "company_logos", ["company_id"], :name => "index_company_logos_on_company_id"
 
   create_table "expenditure_types", :force => true do |t|
     t.string   "title"
