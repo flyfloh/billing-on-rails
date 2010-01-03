@@ -1,4 +1,5 @@
 class ExpendituresController < ApplicationController
+  before_filter :require_user
   before_filter :find_expenditure, :except => [:index, :new, :create]
   
   def index

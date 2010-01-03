@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_filter :require_user
   before_filter :find_client, :except => [:index, :new, :create]
 
   def index

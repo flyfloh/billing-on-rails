@@ -1,6 +1,3 @@
-<% content_for :head do %>
-    <%= stylesheet_link_tag "bills", :media =>"all" %>
-<% end %>
 <div id="subnavigation">
   <ul>
     <%= render :partial => "navigation" %>
@@ -16,7 +13,7 @@
 </div>
 
 <% @bills.sort.each do |state,bills| %>
-<div class="open_bills">
+<div class="summary bills">
   <h2><%= pretty_state(state) %> Bills</h2>
   <%= render :partial => "bills_table", :object => bills %>
 </div>

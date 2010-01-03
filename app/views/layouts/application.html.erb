@@ -8,29 +8,28 @@
     <title><%= yield(:title) || "Billing On Rails" %></title>
   </head>
   <body>
-    <h1>
-      Billing on Rails
-      <div id="subtitle">A simple Ruby On Rails Billing Manager</div>
-    </h1>
-    <div id="navigation">
-      <ul>
-        <li><%= link_to "Balance", balance_path(:year => Time.now.year) %></li>
-        <li><%= link_to "Bills", bills_path %></li>
-        <li><%= link_to "Clients", clients_path %></li>
-        <li><%= link_to "Company", :controller => 'companies', :action => 'edit' %></li>
-        <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
+    <div id="head">
+      <%= link_to content_tag(:h1), root_url %>
+      <ul id="navi">
+        <% if current_user %>
+          <li><%= link_to "Balance", balance_path(:year => Time.now.year) %></li>
+          <li><%= link_to "Bills", bills_path %></li>
+          <li><%= link_to "Clients", clients_path %></li>
+          <li><%= link_to "Company", :controller => 'companies', :action => 'edit' %></li>
+          <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
+        <% end %>
+        <li><%= link_to "About", about_path %></li>
+        <% if current_user %>
+          <li><%= link_to image_tag("icons/disconnect.png", :alt => "logout", :style => "border:0;"), logout_path %></li>
+        <% end %>
       </ul>
     <span class="clear">&nbsp;</span>
     </div>
 
-    <div id="wrapper">
-      <div id="content">
-        <%= yield :layout %>
-      </div>
-    </div>
+    <%= flash_notice %>
 
-    <div id="footer">
-      Billing on Rails Version 0.5.5 by <a href="http://blog.fly-soft.de" target="_blank">Florian Pester</a>
+    <div id="content">
+      <%= yield :layout %>
     </div>
 
   </body>

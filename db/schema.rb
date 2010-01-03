@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090407082042) do
+ActiveRecord::Schema.define(:version => 20100102230726) do
 
   create_table "bills", :force => true do |t|
     t.integer  "client_id"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20090407082042) do
     t.string   "payment"
     t.date     "paid_date"
     t.date     "billed_date"
+    t.integer  "user_id"
   end
 
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
+  add_index "bills", ["user_id"], :name => "index_bills_on_user_id"
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -53,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20090407082042) do
     t.datetime "updated_at"
     t.string   "owner"
     t.boolean  "billed_date_relevant"
+    t.integer  "user_id"
+    t.binary   "company_logo"
   end
 
   create_table "expenditure_types", :force => true do |t|
@@ -88,5 +92,15 @@ ActiveRecord::Schema.define(:version => 20090407082042) do
   end
 
   add_index "positions", ["bill_id"], :name => "index_positions_on_bill_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -3,19 +3,12 @@ body {
     margin:0;
 }
 h1 {
-    height: 3em;
-    margin: 0 0 0 0;
-    padding: 7px;
-    background: #092D74;
-    font-weight:bold;
-    font-size:130%;
-    text-align:center;
-    color: #fff;
-}
-h1 #subtitle {
-    font-size:80%;
-    font-weight:normal;
-    margin:0;
+    margin:0 2em 0 0;
+    padding:0;
+    background: url('../images/h1.png') repeat-x;
+    width:415px;
+    height:50px;
+    float:left;
 }
 a {
     color:#00f;
@@ -27,65 +20,38 @@ a:hover {
 
 /* Layout IDs */
 
-#navigation, #footer {
-    background:#7EA9FF;
-    margin:0;
-    height:37px;
+#head {
+    height: 50px;
     width:100%;
-    border-bottom:1px solid #092D74;
-}
-#footer {
-    border-bottom:0;
-    border-top:1px solid #092D74;
-    clear:both;
-    padding: 10px 10px 0 10px;
-    height:30px;
-    width:auto;
-    color:#fff;
+    margin: 0;
+    background: url('../images/h1bg.png') repeat-x;
     font-weight:bold;
 }
-#navigation ul {
+#navi {
     margin:0;
-    padding:10px;
-    list-style-type:none;
+    padding:15px;
+    position:absolute;
+    right:10px;
 }
-#navigation ul li {
+#navi li {
     float:left;
-}
-#navigation ul li a {
-    padding: 10px 12px;
-    font-weight:bold;
-    color:#fff;
-}
-#navigation ul li a:hover {
-    text-decoration:none;
-    background: #092D74;
-}
-div#subnavigation {
-    background: #ddd;
-    border-bottom: 1px solid #bbb;
-    margin: 0 0 2em 0;
-    height:27px;
-    width:100%;
-}
-#subnavigation ul {
-    margin:0;
-    padding:5px;
     list-style-type:none;
+    margin:auto .5em;
 }
-#subnavigation ul li {
-    float:left;
-}
-#subnavigation ul li a {
-    padding: 8px 8px 3px 8px;
+#navi li a {
+    color:#777;
     font-weight:bold;
-    font-size:80%;
-    color:#7EA9FF;
+    font-size:12px;
 }
-#subnavigation ul li a:hover {
+#navi li a:hover {
     text-decoration:none;
-    background: #092D74;
+    color:#a7a7a7;
 }
+
+#content {
+    padding:1em;
+}
+
 #flash_notice {
     position:fixed;
     top:0;
@@ -97,6 +63,19 @@ div#subnavigation {
     font-size:110%;
     text-align:center;
     font-weight:bold;
+}
+
+/* Classes */
+.summary {
+    border: 1px solid #E4EDFF;
+    width:45%;
+    margin:1em auto;
+    padding:7px;
+}
+div.bills,
+div.clients,
+div.expenditures {
+    width:66%;
 }
 
 /* Search Fields */

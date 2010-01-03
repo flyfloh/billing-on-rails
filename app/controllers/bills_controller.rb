@@ -1,16 +1,19 @@
 class BillsController < ApplicationController
   before_filter :find_bill, :except => [:index, :new, :create]
+  before_filter :require_user
 
   def index
     if params[:search].blank?
-      @bills = Bill.find(:all, :conditions => "state != 10").group_by { |b| b.state }
+      # TODO: filter deleted bills
+      @bills = @user.bills.group_by { |b| b.state }
     else
+      # TODO: only show user's bills
       @bills = Bill.find(:all, :conditions => ["title LIKE ? AND state != 10", '%' + params[:search] + '%']).group_by { |b| b.state }
     end
   end
 
   def show
-    @company = Company.instance
+    @company = @user.company
   end
   
   def new
@@ -20,6 +23,7 @@ class BillsController < ApplicationController
   def create
     @bill = Bill.new(params[:bill])
     @bill.state = 0
+    @bill.user = current_user
     if @bill.save
       flash[:notice] = 'Bill successfully created.'
       redirect_to :action => "show", :id => @bill.id
@@ -32,6 +36,7 @@ class BillsController < ApplicationController
     @bill.state = @bill.state + 1
     # set billed_date if bill is being marked as billed
     @bill.billed_date = Date.today if @bill.state == 1
+    # skip admonished state
     @bill.state = @bill.state + 1 if @bill.state == 2
     #set paid date if bill is being marked as paid
     @bill.paid_date = Date.today if @bill.state == 3

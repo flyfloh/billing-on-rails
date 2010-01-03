@@ -7,23 +7,17 @@
 */
 
 
-div#billed_date_box,
-div#paid_date_box,
-div#net_total_box,
-div#tax_box,
-div#gross_total_box {
-    border:1px solid #E4EDFF;
-    width:42%;
-    margin:1em;
-    padding:7px;
+div#billed_date,
+div#net_total,
+div#gross_total {
     float:left;
-    font-size:110%;
 }
-div#gross_total_box {
-    width:42%;
+div#paid_date,
+div#tax {
+    float:right;
 }
-div#net_total_box,
-div#gross_total_box {
+div#net_total,
+div#gross_total {
     clear:left;
 }
 span.num {
@@ -33,14 +27,13 @@ span.num {
 span.date {
     margin-left:3em;
 }
-dl.info {
-    margin:1em;
+
+#info {
+    width:66%;
+    list-style-type:none;
+    text-align:center;
 }
-dl.info dt {
+#info li {
     float:left;
-    font-weight:bold;
-    padding:7px;
-}
-dl.info dd {
-    padding:7px;
+    padding:.5em;
 }

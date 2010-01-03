@@ -1,0 +1,31 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag "homepage", :media =>"all" %>
+<% end %>
+
+<div class="welcome">
+  Welcome back, <%= h @user.login %>
+  <%= image_tag "company_logo.png", :alt => "Company Logo", :style => "float:right;" %>
+</div>
+
+<div class="summary balance">
+  <h2>Balance Summary</h2>
+
+  This feature is not implemented yet!
+</div>
+
+<div class="summary open_bills">
+  <h2>Current Open Bills</h2>
+  <%= render :partial => "bills/bills_table", :object => @bills %>
+
+</div>
+
+<div class="summary billed_expenditures">
+  <h2>Unpaid Expenditures</h2>
+  <%= render :partial => "expenditures/expenditures_table", :object => @expenditures %>
+</div>
+
+
+<div class="summary overdue_bills">
+  <h2>Overdue Bills</h2>
+  <%= render :partial => "bills/bills_table", :object => @overdue_bills %>
+</div>

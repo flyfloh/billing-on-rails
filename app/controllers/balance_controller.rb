@@ -1,11 +1,13 @@
 class BalanceController < ApplicationController
+  before_filter :require_user
+  before_filter :find_user, :except => :index
+  before_filter :find_company, :except => :index
 
   def index
-    redirect_to(balance_path(:year => Time.now.year))
+    redirect_to balance_path(:year => Time.now.year)
   end
 
   def sheet
-    @company = Company.instance
     @year = params[:year]
     if @company.billed_date_relevant
       @bills = Bill.billed_bills :year => @year
@@ -19,7 +21,6 @@ class BalanceController < ApplicationController
   end
 
   def show
-    @company = Company.instance
     @year = params[:year].to_i
     @month = params[:month].to_i
     
@@ -30,5 +31,15 @@ class BalanceController < ApplicationController
       @bills = Bill.paid_bills :year => @year, :month => @month
       @expenditures = Expenditure.paid :year => @year, :month => @month
     end
+  end
+
+  private
+
+  def find_company
+    @company = @user.company
+  end
+
+  def find_user
+    @user = current_user
   end
 end

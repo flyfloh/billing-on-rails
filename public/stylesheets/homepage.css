@@ -1,0 +1,26 @@
+/* 
+    Document   : homepage
+    Created on : 27.12.2009, 14:39:35
+    Author     : flyfloh
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div.balance {
+    float:left;
+}
+div.open_bills {
+    float:right;
+}
+div.billed_expenditures {
+    float:left;
+    clear:both;
+}
+div.overdue_bills {
+    float:right;
+}

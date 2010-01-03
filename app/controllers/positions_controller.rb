@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_filter :require_user
   before_filter :find_position, :except => [:new, :create]
   before_filter :find_bill, :only => [:new,:create]
   before_filter :enforce_position_lock

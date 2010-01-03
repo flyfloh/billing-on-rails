@@ -1,24 +1,4 @@
 
-/* Making the Footer Stick to the Bottom of the Page */
-
-html,body {
-    height:100%;
-}
-#wrapper {
-    position:relative;
-    min-height:80%;
-}
-* html #wrapper {
-    height:80%;
-}
-#content {
-    padding-bottom: 9em;
-}
-#footer {
-    position: relative;
-    margin-top: -7.5em;
-} 
-
 /* some designs */
 
 body {
@@ -34,13 +14,6 @@ h2 {
 h2, h3 {
     font-size:110%;
     font-weight:bold;
-}
-div.clients,
-div.expenditures {
-    border:1px solid #E4EDFF;
-    width:66%;
-    margin:1em auto;
-    padding:7px;
 }
 
 /* Show different color for admonished bills */
@@ -74,20 +47,10 @@ table tr th {
 table tr td.num {
     text-align:right;
 }
-#container {
-    margin:auto;
-    width:60%;
-}
 div.find_bills {
     text-align:right;
     padding:15px;
 }
-div.find_bills,
-div.open_bills,
-div.billed_bills,
-div.paid_bills {
+div.find_bills {
     width:66%;
-    margin:1em auto;
-    border:1px solid #E4EDFF;
-    padding:7px;
 }

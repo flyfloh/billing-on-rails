@@ -2,6 +2,7 @@ class Bill < ActiveRecord::Base
   validates_presence_of :client
   has_many :positions
   belongs_to :client
+  belongs_to :user
   
   # this class represents a bill
   

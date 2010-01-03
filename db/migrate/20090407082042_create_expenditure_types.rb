@@ -11,7 +11,6 @@ class CreateExpenditureTypes < ActiveRecord::Migration
 
   def self.down
     drop_table :expenditure_types
-    remove_index :expenditures
     remove_column :expenditures, :expenditure_type_id
   end
 end

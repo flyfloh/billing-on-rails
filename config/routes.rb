@@ -1,4 +1,36 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.root :controller => "homepage"
+
+  map.signup '/signup', :controller => "users", :action => "new"
+  map.login  '/login', :controller => "user_sessions", :action => "new"
+  map.logout '/logout', :controller => "user_sessions", :action => "destroy"
+  map.dashboard '/dashboard', :controller => "homepage", :action => "dashboard"
+  map.about '/about', :controller => "homepage", :action => "about"
+
+  
+  #this generates a nice url for the balance sheet
+  map.balance 'balance/:year/sheet', :controller => "balance", :action => "sheet",
+      :year => /\d+/
+  # this is to keep the url for the year view simple
+  map.balance 'balance/:year/:month', :controller => "balance", :action => "show",
+      :year => /\d+/, :month => /\d+/
+  map.balance 'balance/:year', :controller => "balance", :action => "show",
+      :year => /\d+/
+
+  #RESTful Routes
+  map.resources :bills, :member => { :close => :post}, :has_many => :positions
+  map.resources :clients
+  map.resources :expenditures
+  map.resources :users
+
+  map.resource :user_session
+
+  # Install the default routes as the lowest priority.
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+  map.connect ':controller/:action'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -28,31 +60,4 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-  # 
-  # 
-  # 
-  # this is to keep the url for the month view simple  
-#  map.balance 'balance/:year/:month', :controller => "balance", :action => "month",
-#      :year => /\d+/, :month => /\d+/
-  #this generates a nice url for the balance sheet
-  map.balance 'balance/:year/sheet', :controller => "balance", :action => "sheet",
-      :year => /\d+/
-  # this is to keep the url for the year view simple
-  map.balance 'balance/:year/:month', :controller => "balance", :action => "show",
-      :year => /\d+/, :month => /\d+/
-  map.balance 'balance/:year', :controller => "balance", :action => "show",
-      :year => /\d+/
-
-  # Homepage
-  map.homepage '', :controller => 'homepage', :action => 'index'
-  
-  #RESTful Routes
-  map.resources :bills, :member => { :close => :post}, :has_many => :positions
-  map.resources :clients
-  map.resources :expenditures
-
-  # Install the default routes as the lowest priority.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action'
 end

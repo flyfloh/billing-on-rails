@@ -14,19 +14,8 @@
 </div>
 
 <% @expenditure_states.sort.each do |state,expenditures| %>
-  <div class="expenditures">
+  <div class="summary expenditures">
     <h3><%= pretty_state(state) %> Expenditures</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Partner</th>
-          <th>Title</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render :partial => expenditures %>
-      </tbody>
-    </table>
+    <%= render :partial => "expenditures_table", :object => expenditures %>
   </div>
 <% end %>

@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_filter :require_user
+  before_filter :find_user
   before_filter :get_company
   
   def edit
@@ -16,6 +18,11 @@ class CompaniesController < ApplicationController
   private
   
   def get_company
-    @company = Company.instance
+    @company = @user.company
   end
+
+  def find_user
+    @user = current_user
+  end
+  
 end
