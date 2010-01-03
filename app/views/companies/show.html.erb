@@ -1,7 +1,7 @@
 <h2><%= h @company.name %></h2>
 
 <% if @company.company_logo %>
-  <% image_tag company_logo_path(@company.company_logo), :alt => "Company Logo" %>
+  <%= image_tag company_logo_path(@company.company_logo), :alt => "Company Logo" %>
 <% else %>
   <% form_for CompanyLogo.new, :html => {:multipart => true} do |f| %>
     <%= f.label :uploaded_picture %>

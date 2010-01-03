@@ -10,7 +10,7 @@ class CompanyLogosController < ApplicationController
   end
 
   def create
-    @company_logo = CompanyLogo.new(params[:image])
+    @company_logo = CompanyLogo.new(params[:company_logo])
     @company_logo.company = @user.company
     if @company_logo.save
       flash[:notice] = "Your Logo has been added successfully"

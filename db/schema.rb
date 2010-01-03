@@ -20,11 +20,9 @@ ActiveRecord::Schema.define(:version => 20100103152801) do
     t.string   "payment"
     t.date     "paid_date"
     t.date     "billed_date"
-    t.integer  "bill_type_id"
     t.integer  "user_id"
   end
 
-  add_index "bills", ["bill_type_id"], :name => "index_bills_on_bill_type_id"
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
   add_index "bills", ["user_id"], :name => "index_bills_on_user_id"
 
