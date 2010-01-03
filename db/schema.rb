@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100102230726) do
+ActiveRecord::Schema.define(:version => 20100103151023) do
 
   create_table "bills", :force => true do |t|
     t.integer  "client_id"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20100102230726) do
     t.string   "payment"
     t.date     "paid_date"
     t.date     "billed_date"
+    t.integer  "bill_type_id"
     t.integer  "user_id"
   end
 
+  add_index "bills", ["bill_type_id"], :name => "index_bills_on_bill_type_id"
   add_index "bills", ["client_id"], :name => "index_bills_on_client_id"
   add_index "bills", ["user_id"], :name => "index_bills_on_user_id"
 
@@ -37,7 +39,10 @@ ActiveRecord::Schema.define(:version => 20100102230726) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "clients", ["user_id"], :name => "index_clients_on_user_id"
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -77,9 +82,11 @@ ActiveRecord::Schema.define(:version => 20100102230726) do
     t.decimal  "tax",                 :precision => 8, :scale => 2
     t.integer  "state"
     t.integer  "expenditure_type_id"
+    t.integer  "user_id"
   end
 
   add_index "expenditures", ["expenditure_type_id"], :name => "index_expenditures_on_expenditure_type_id"
+  add_index "expenditures", ["user_id"], :name => "index_expenditures_on_user_id"
 
   create_table "positions", :force => true do |t|
     t.integer  "bill_id"

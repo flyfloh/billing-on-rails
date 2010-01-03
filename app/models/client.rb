@@ -1,5 +1,7 @@
 class Client < ActiveRecord::Base
   has_many :bills
+  belongs_to :user
+  
   validates_presence_of :name
   validates_presence_of :strasse
   validates_length_of :plz, :within => 5..7
