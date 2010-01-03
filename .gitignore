@@ -4,3 +4,4 @@ log/*.pid
 tmp/**/*
 config/database.yml
 public/images/logo.gif
+nbproject/**/*
