@@ -2,28 +2,16 @@
     <%= stylesheet_link_tag "company", :media => "all" %>
 <% end %>
 
-<% if @company.company_logo %>
-  <div>
-    <%= image_tag company_logo_path(@company.company_logo), :alt => "Company Logo", :class => "company_logo" %>
-  </div>
-<% end %>
-<h2><%= h @company.name %></h2>
-<ul>
-  <li><%= link_to "Update Company Data", edit_company_path(@company) %></li>
-  <% if @company.company_logo %>
-    <li><%= link_to "Update Company Logo", edit_company_logo_path(@company.company_logo) %></li>
-  <% else %>
-    <li><%= link_to "Upload Company Logo", new_company_logo_path %></li>
-  <% end %>
-</ul>
+<%= company_logo %>
 
-<% unless @company.company_logo %>
-  <% form_for CompanyLogo.new, :html => {:multipart => true} do |f| %>
-    <%= f.label :uploaded_picture %>
-    <%= f.file_field :uploaded_picture %>
-    <%= f.submit "add logo" %>
-  <% end %>
-<% end %>
+<div id="company_menu" class="summary">
+  <h2>Your Company</h2>
+  <p><%= @company.name %></p>
+  <ul>
+    <li><%= link_to "Update Company Data", edit_company_path(@company) %></li>
+    <%= update_company_logo_link %>
+  </ul>
+</div>
 
 <div id="adress" class="summary">
   <h3>Adress</h3>

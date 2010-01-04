@@ -1,53 +1,54 @@
-<div>
-  <%= form.label :name %>:<br />
-  <%= form.text_field :name, :size => 50 %>
-</div>
+<fieldset class="summary">
+  <legend>General</legend>
+  <div>
+    <%= form.label :name %>:<br />
+    <%= form.text_field :name, :size => 50 %>
+  </div>
 
-<div>
-  <%= form.label :owner %>:<br />
-  <%= form.text_field :owner, :size => 20 %>
-</div>
+  <div>
+    <%= form.label :owner %>:<br />
+    <%= form.text_field :owner, :size => 20 %>
+  </div>
+</fieldset>
 
-<div>
-  <%= form.label :street %>:<br />
-  <%= form.text_field :street, :size => 50 %>
-</div>
+<fieldset class="summary">
+  <legend>Company Adress</legend>
+  <div>
+    <%= form.label :street %>:<br />
+    <%= form.text_field :street, :size => 50 %>
+  </div>
 
-<div>
-  <%= form.label :plz %>:<br />
-  <%= form.text_field :plz, :size => 7 %>
-</div>
+  <div>
+    <%= form.label :plz %>:<br />
+    <%= form.text_field :plz, :size => 7 %>
+  </div>
 
-<div>
-  <%= form.label :city %>:<br />
-  <%= form.text_field :city, :size => 30 %>
-</div>
+  <div>
+    <%= form.label :city %>:<br />
+    <%= form.text_field :city, :size => 30 %>
+  </div>
+</fieldset>
 
-<div>
-  <%= form.label :tax_no %>:<br />
-  <%= form.text_field :tax_no, :size => 15 %>
-</div>
+<fieldset class="summary">
+  <legend>Contact Information</legend>
+  <div>
+    <%= form.label :tel %>:<br />
+    <%= form.text_field :tel, :size => 20 %>
+  </div>
 
-<div>
-  <%= form.label :billed_date_relevant, "Besteuerungsform" %>:<br />
-  <%= form.select :billed_date_relevant, [['Vereinnahmte Betraege', false],['Berechnete Betraege',true]] %>
-</div>
+  <div>
+    <%= form.label :email %>:<br />
+    <%= form.text_field :email, :size => 50 %>
+  </div>
 
-<div>
-  <%= form.label :tel %>:<br />
-  <%= form.text_field :tel, :size => 20 %>
-</div>
+  <div>
+    <%= form.label :web %>:<br />
+    <%= form.text_field :web, :size => 25 %>
+  </div>
+</fieldset>
 
-<div>
-  <%= form.label :email %>:<br />
-  <%= form.text_field :email, :size => 50 %>
-</div>
-
-<div>
-  <%= form.label :web %>:<br />
-  <%= form.text_field :web, :size => 25 %>
-</div>
-
+<fieldset class="summary">
+  <legend>Bank Information</legend>
 <div>
   <%= form.label :account_no %>:<br />
   <%= form.text_field :account_no, :size => 15 %>
@@ -62,4 +63,17 @@
   <%= form.label :bank %>:<br />
   <%= form.text_field :bank, :size => 20 %>
 </div>
+</fieldset>
 
+<fieldset class="summary">
+  <legend>Tax Information</legend>
+  <div>
+    <%= form.label :tax_no %>:<br />
+    <%= form.text_field :tax_no, :size => 15 %>
+  </div>
+
+  <div>
+    <%= form.label :billed_date_relevant, "Besteuerungsform" %>:<br />
+    <%= form.select :billed_date_relevant, [['Vereinnahmte Betraege', false],['Berechnete Betraege',true]] %>
+  </div>
+</fieldset>

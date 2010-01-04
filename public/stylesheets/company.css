@@ -6,18 +6,22 @@
         Purpose of the stylesheet follows.
 */
 
-img.company_logo {
-    height:150px;
+div.company_logo {
     padding:12px 150px;
     float:left;
 }
-h2 {
-    text-align:left;
+div.company_logo > img {
+    height:150px;
+}
+div#company_menu {
+    float:right;
 }
 div#adress {
+    clear:left;
     float:left;
 }
 div#contact {
+    clear:right;
     float:right;
 }
 

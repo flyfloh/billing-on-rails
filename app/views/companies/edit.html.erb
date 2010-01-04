@@ -5,14 +5,10 @@
 
 
 <% form_for @company do |form| %>
-  <fieldset>
-    <legend>Edit your Company</legend>
-
     <%= render :partial => 'form', :object => form %>
     
     <%= submit_tag "save" %>
-    <%= link_to "cancel", :action => "index" %>
-  </fieldset>
+    <%= link_to "cancel", company_path(@company) %>
 <% end %>
 </div>
 
