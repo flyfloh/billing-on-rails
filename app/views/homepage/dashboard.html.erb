@@ -4,7 +4,7 @@
 
 <div class="welcome">
   Welcome back, <%= h @user.login %>
-  <%= image_tag "company_logo.png", :alt => "Company Logo", :style => "float:right;" %>
+  <%= display_company_logo(@user.company) %>
 </div>
 
 <div class="summary balance">
