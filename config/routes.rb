@@ -24,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :expenditures
   map.resources :users, :only => [:new, :create]
   map.resources :companies
-  map.resources :company_logos, :except => [:index, :edit, :update]
+  map.resources :company_logos, :except => :index
 
   map.resource :user_session
 

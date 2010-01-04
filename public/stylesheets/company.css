@@ -1,0 +1,31 @@
+/* 
+    Document   : company
+    Created on : 04.01.2010, 02:49:12
+    Author     : flyfloh
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+img.company_logo {
+    height:150px;
+    padding:12px 150px;
+    float:left;
+}
+h2 {
+    text-align:left;
+}
+div#adress {
+    float:left;
+}
+div#contact {
+    float:right;
+}
+
+div#bank {
+    float:right;
+    clear:right;
+}
+div#tax {
+    float:left;
+    clear:left;
+}

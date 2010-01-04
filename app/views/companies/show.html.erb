@@ -1,8 +1,23 @@
-<h2><%= h @company.name %></h2>
+<% content_for :head do %>
+    <%= stylesheet_link_tag "company", :media => "all" %>
+<% end %>
 
 <% if @company.company_logo %>
-  <%= image_tag company_logo_path(@company.company_logo), :alt => "Company Logo" %>
-<% else %>
+  <div>
+    <%= image_tag company_logo_path(@company.company_logo), :alt => "Company Logo", :class => "company_logo" %>
+  </div>
+<% end %>
+<h2><%= h @company.name %></h2>
+<ul>
+  <li><%= link_to "Update Company Data", edit_company_path(@company) %></li>
+  <% if @company.company_logo %>
+    <li><%= link_to "Update Company Logo", edit_company_logo_path(@company.company_logo) %></li>
+  <% else %>
+    <li><%= link_to "Upload Company Logo", new_company_logo_path %></li>
+  <% end %>
+</ul>
+
+<% unless @company.company_logo %>
   <% form_for CompanyLogo.new, :html => {:multipart => true} do |f| %>
     <%= f.label :uploaded_picture %>
     <%= f.file_field :uploaded_picture %>
@@ -10,33 +25,32 @@
   <% end %>
 <% end %>
 
-<p><%= link_to "edit", edit_company_path(@company) %></p>
+<div id="adress" class="summary">
+  <h3>Adress</h3>
+  <address>
+    <%= h @company.name %><br>
+    <%= h @company.owner %><br>
+    <%= h @company.street %><br>
+    <%= h @company.plz %>&nbsp;<%= h @company.city %>
+  </address>
+</div>
 
-<dl>
-  <dd>Name:</dd>
-  <dt><%= h @company.name %></dt>
-  <dd>Owner:</dd>
-  <dt><%= h @company.owner %></dt>
-  <dd>Street:</dd>
-  <dt><%= h @company.street %></dt>
-  <dd>Postcode:</dd>
-  <dt><%= h @company.plz %></dt>
-  <dd>City:</dd>
-  <dt><%= h @company.city %></dt>
-  <dd>Tax No:</dd>
-  <dt><%= h @company.tax_no %></dt>
-  <dd>Tax Type:</dd>
-  <dt><%= h @company.billed_date_relevant %></dt>
-  <dd>Telephone:</dd>
-  <dt><%= h @company.tel %></dt>
-  <dd>E-Mail:</dd>
-  <dt><%= h @company.email %></dt>
-  <dd>Web:</dd>
-  <dt><%= h @company.web %></dt>
-  <dd>Account No:</dd>
-  <dt><%= h @company.account_no %></dt>
-  <dd>Bank Code:</dd>
-  <dt><%= h @company.bank_code %></dt>
-  <dd>Bank:</dd>
-  <dt><%= h @company.bank %></dt>
-</dl>
+<div id="contact" class="summary">
+<h3>Contact</h3>
+  <%= image_tag "icons/telephone.png", :alt => "Telephone:" %> <%= h @company.tel %><br>
+  <%= image_tag "icons/email.png", :alt => "E-Mail:" %> <%= h @company.email %><br>
+  <%= image_tag "icons/world.png", :alt => "Internet:" %> <%= h @company.web %>
+</div>
+
+<div id="bank" class="summary">
+<h3>Bank Information</h3>
+  Account No: <%= h @company.account_no %><br>
+  Bank Code: <%= h @company.bank_code %><br>
+  Bank: <%= h @company.bank %>
+</div>
+
+<div id="tax" class="summary">
+<h3>Tax Info</h3>
+  Tax No: <%= h @company.tax_no %><br>
+  Tax Type: <%= h @company.billed_date_relevant %>
+</div>
