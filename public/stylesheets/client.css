@@ -6,23 +6,9 @@
         Purpose of the stylesheet follows.
 */
 
-#adress,
-#contact {
-    border:1px solid #E4EDFF;
-    padding:7px;
-    width:40%;
-    margin:1em;
-}
 #adress {
     float:left;
 }
 #contact {
     float:right;
-}
-div.find_bills,
-div.open_bills,
-div.billed_bills,
-div.paid_bills {
-    width:100%;
-    margin:1em;
 }

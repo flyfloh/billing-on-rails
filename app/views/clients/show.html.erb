@@ -13,31 +13,28 @@
 
 <h2><%= h @client.vorname %> <%= h @client.name %></h2>
 
-<div id="container">
-  <div id="adress">
-    <p>
-      <%= @client.firma %><br />
-      <%= @client.strasse %></br />
-      <%= @client.plz %> <%= @client.ort %>
-    </p>
-  </div>
-
-  <div id="contact">
-    <p>
-      Telefon: <%= @client.tel %><br />
-      E-Mail: <%= mail_to @client.email %>
-    </p>
-  </div>
-
-  <p style="clear:left;"></p>
-
-  <% @client.bills.group_by { |b| b.state }.sort.each do |state,bills| %>
-    <% unless state == 10 %>
-      <div class="open_bills">
-        <h2><%= pretty_state(state) %> Bills</h2>
-        <%= render :partial => "bills/bills_table", :object => bills %>
-      </div>
-    <% end %>
-  <% end %>
-
+<div id="adress" class="summary">
+  <h3>Adress</h3>
+  <adress>
+    <%= @client.firma %><br>
+    <%= @client.strasse %><br>
+    <%= @client.plz %> <%= @client.ort %>
+  </adress>
 </div>
+
+<div id="contact" class="summary">
+  <h3>Contact</h3>
+  <%= image_tag "icons/telephone.png", :alt => "Telephone:" %> <%= @client.tel %><br>
+  <%= image_tag "icons/email.png", :alt => "E-Mail:" %> <%= mail_to @client.email %>
+</div>
+
+<p style="clear:left;"></p>
+
+<% @client.bills.group_by { |b| b.state }.sort.each do |state,bills| %>
+  <% unless state == 10 %>
+    <div class="summary bills">
+      <h2><%= pretty_state(state) %> Bills</h2>
+      <%= render :partial => "bills/bills_table", :object => bills %>
+    </div>
+  <% end %>
+<% end %>
