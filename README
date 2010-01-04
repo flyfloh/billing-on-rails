@@ -3,6 +3,6 @@
 Billing on Rails is a simple Billing Application written in Ruby on Rails and licensed under GPLv3 (see LICENSE file for details).
 
 Start by editing the config/database_example.yml to your needs and saving it as config/database.yml. Then run rake db:create and rake db:migrate. Now you should be all set up.
-You can put your company's logo into public/images/logo.gif and edit the .css files to your liking, in order to make them fit to your exisiting bill design.
+You can edit the bill_print.css files to your liking, in order to make your Bills fit to your exisiting bill design.
 
 I hope you like this software. If you have any questions, Bug reports or suggestions please contact me at github.com (My Nickname is: flyfloh) or at my Blog: http://blog.fly-soft.de.
