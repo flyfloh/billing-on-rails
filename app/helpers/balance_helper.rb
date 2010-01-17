@@ -7,6 +7,31 @@ module BalanceHelper
       to_date(:year => year, :month => month).strftime("%B %Y")
     end
   end
+
+  def fwd(year,month)
+    if month == 0
+      link_to "&rarr;", :year => year.to_i+1
+    else
+      if month == 12
+        link_to "&rarr;", :year => year.to_i+1, :month => 1
+      else
+        link_to "&rarr;", :year => year, :month => month.to_i+1
+      end
+    end
+  end
+
+  def rwd(year,month)
+    if month == 0
+      link_to "&larr;", :year => year.to_i-1
+    else
+      if month == 1
+        link_to "&larr;", :year => year-1, :month => 12
+      else
+        link_to "&larr;", :year => year, :month => month.to_i-1
+      end
+    end
+    
+  end
   
   def net_total(bills)
     bills.sum { |bill| bill.net_total }

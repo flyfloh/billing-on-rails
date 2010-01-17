@@ -2,11 +2,9 @@
     <%= stylesheet_link_tag "sheet", :media => "all" %>
 <% end %>
 
-<div id="subnavigation">
-  <ul>
-    <%= render :partial => "navigation" %>
-  </ul>
-</div>
+<% content_for :subnavi do %>
+  <%= render :partial => "navigation" %>
+<% end %>
 
 <div id="adress">
   <%= @company.name %>, Inh. <%= @company.owner %><br />

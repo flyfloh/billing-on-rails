@@ -2,14 +2,10 @@
     <%= stylesheet_link_tag "client", :media => "all" %>
 <% end %>
 
-<div id="subnavigation">
-  <ul>
-    <li><%= link_to "edit client", edit_client_path(@client.id) %></li>
-    <%= render :partial => "navigation" %>
-  </ul>
-</div>
-
-<%= flash_notice %>
+<% content_for :subnavi do %>
+  <li><%= link_to "edit client", edit_client_path(@client.id) %></li>
+  <%= render :partial => "navigation" %>
+<% end %>
 
 <h2><%= h @client.vorname %> <%= h @client.name %></h2>
 

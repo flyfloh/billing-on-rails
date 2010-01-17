@@ -20,4 +20,12 @@ module CompaniesHelper
       end
   end
 
+  def tax_type(company)
+    if company.billed_date_relevant
+      "Berechnete Betr&auml;ge"
+    else
+      "Vereinnahmte Betr&auml;ge"
+    end
+  end
+
 end

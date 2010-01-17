@@ -26,8 +26,8 @@
 <div id="contact" class="summary">
 <h3>Contact</h3>
   <%= image_tag "icons/telephone.png", :alt => "Telephone:" %> <%= h @company.tel %><br>
-  <%= image_tag "icons/email.png", :alt => "E-Mail:" %> <%= h @company.email %><br>
-  <%= image_tag "icons/world.png", :alt => "Internet:" %> <%= h @company.web %>
+  <%= image_tag "icons/email.png", :alt => "E-Mail:" %> <%= mail_to @company.email %><br>
+  <%= image_tag "icons/world.png", :alt => "Internet:" %> <%= link_to @company.web, @company.web %>
 </div>
 
 <div id="bank" class="summary">
@@ -40,5 +40,5 @@
 <div id="tax" class="summary">
 <h3>Tax Info</h3>
   Tax No: <%= h @company.tax_no %><br>
-  Tax Type: <%= h @company.billed_date_relevant %>
+  Tax Type: <%= tax_type(@company) %>
 </div>

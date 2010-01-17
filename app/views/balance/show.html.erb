@@ -1,16 +1,14 @@
 <% content_for :head do %>
     <%= stylesheet_link_tag "balance", :media =>"all" %>
 <% end %>
-<div id="subnavigation">
-  <ul>
-    <%= render :partial => "navigation" %>
-  </ul>
-</div>
+<% content_for :subnavi do %>
+  <%= render :partial => "navigation" %>
+<% end %>
 
 <h2>
-  <span class="noprint"><%= link_to "&larr;", :year => @year.to_i-1 %></span>
+  <span class="noprint"><%= rwd(@year,@month) %></span>
   Balance&nbsp;<%= header_date(@year,@month) %>
-  <span class="noprint"><%= link_to "&rarr;", :year => @year.to_i+1 %></span>
+  <span class="noprint"><%= fwd(@year,@month) %></span>
 </h2>
 
 <div class="balance">

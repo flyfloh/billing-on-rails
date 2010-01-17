@@ -2,15 +2,11 @@
     <%= stylesheet_link_tag "expenditure", :media => "all" %>
 <% end %>
 
-<div id="subnavigation">
-  <ul>
+<% content_for :subnavi do %>
     <li><%= link_to "edit", :action => 'edit', :id => @expenditure.id %></li>
     <li><%= link_to "destroy", :action => 'destroy', :id => @expenditure.id %></li>
     <%= render :partial => "navigation" %>
-  </ul>
-</div>
-
-<%= flash_notice %>
+<% end %>
 
 <h2><%= h @expenditure.name %></h2>
 

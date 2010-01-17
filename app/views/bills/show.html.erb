@@ -3,18 +3,14 @@
     <%= stylesheet_link_tag "bill_print", :media => "print" %>
 <% end %>
 
-<div id="subnavigation">
-  <ul style="width:75%;float:left;">
-    <li><%= link_to "new position", new_bill_position_path(@bill) %></li>
-    <li><%= close_bill(@bill) %></li>
-    <li><%= link_to "edit", edit_bill_path(@bill) %></li>
-    <li><%= destroy_bill(@bill) %></li>
-    <%= render :partial => "navigation" %>
-  </ul>
-  <p class="state">Bill State: <%= @bill.state_str %></p>
-</div>
-
-<%= flash_notice %>
+<% content_for :subnavi do %>
+<li><%= link_to "new position", new_bill_position_path(@bill) %></li>
+<li><%= close_bill(@bill) %></li>
+<li><%= link_to "edit", edit_bill_path(@bill) %></li>
+<li><%= destroy_bill(@bill) %></li>
+<%= render :partial => "navigation" %>
+<p class="state">Bill State: <%= @bill.state_str %></p>
+<% end %>
 
 <ul id="bill_data">
   <li>Kundennummer: <%= h @bill.client.id %></li>

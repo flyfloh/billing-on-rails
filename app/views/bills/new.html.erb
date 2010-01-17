@@ -1,8 +1,6 @@
-<div id="subnavigation">
-  <ul>
-    <%= render :partial => "navigation" %>
-  </ul>
-</div>
+<% content_for :subnavi do %>
+  <%= render :partial => "navigation" %>
+<% end %>
 
 <h2>Add a Bill</h2>
 
