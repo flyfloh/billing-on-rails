@@ -17,3 +17,6 @@ div#bill {
     padding:0;
     height:0;
 }
+#head {
+    display:none;
+}
