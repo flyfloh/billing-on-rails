@@ -20,10 +20,11 @@
           <li><%= link_to "Company", company_path(@user.company) %></li>
           <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
         <% end %>
-        <li><%= link_to "Login", login_path %></li>
         <li><%= link_to "About", about_path %></li>
         <% if current_user %>
           <li><%= link_to image_tag("icons/disconnect.png", :alt => "logout", :style => "border:0;"), logout_path %></li>
+        <% else %>
+          <li><%= link_to "Login", login_path %></li>
         <% end %>
       </ul>
       <ul id="subnavi" style="clear:both;">
