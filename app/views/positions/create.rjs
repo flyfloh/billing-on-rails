@@ -4,6 +4,8 @@ page.replace_html :tax_total, tax(@bill)
 page.replace_html :gross_total, number_to_euro(@bill.gross_total)
 page[:position_form].reset
 
+page.visual_effect(:Highlight, "pos_#{@position.id}")
+
 page << "if ($('flash_notice')) {"
   page[:flash_notice].show
   page.replace_html :flash_notice, flash[:notice]

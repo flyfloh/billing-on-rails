@@ -1,4 +1,4 @@
-<tr>
+<%  content_tag "tr", :id => "pos_#{position.id}" do %>
   <td class="num"><%= h position.count %></td>
   <td><%= h position.title %></td>
   <td class="num"><%= number_to_euro position.price %></td>
@@ -11,4 +11,4 @@
         :action => "destroy", :id => position.id }, :confirm => "Are you sure?", 
         :method => "post" %></td>
   <% end %>
-</tr>
+<% end %>

@@ -17,14 +17,14 @@
           <li><%= link_to image_tag("icons/chart_curve.png") + " Balance", balance_path(:year => Time.now.year) %></li>
           <li><%= link_to image_tag("icons/table.png")  + " Bills", bills_path %></li>
           <li><%= link_to image_tag("icons/user.png") + " Clients", clients_path %></li>
-          <li><%= link_to "Company", company_path(@user.company) %></li>
-          <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
+          <li><%= link_to image_tag("icons/house.png") + " Company", company_path(@user.company) %></li>
+          <li><%= link_to image_tag("icons/money.png") + " Expenditures", :controller => 'expenditures' %></li>
         <% end %>
-        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to image_tag("icons/information.png") + " About", about_path %></li>
         <% if current_user %>
-          <li><%= link_to image_tag("icons/disconnect.png", :alt => "logout", :style => "border:0;"), logout_path %></li>
+          <li><%= link_to image_tag("icons/disconnect.png", :alt => "logout") + " Logout", logout_path %></li>
         <% else %>
-          <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to image_tag("icons/connect.png") + " Login", login_path %></li>
         <% end %>
       </ul>
       <ul id="subnavi" style="clear:both;">
@@ -37,6 +37,5 @@
     <div id="content">
       <%= yield :layout %>
     </div>
-
   </body>
 </html>

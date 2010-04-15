@@ -11,11 +11,12 @@ module CompaniesHelper
   end
 
   def update_company_logo_link(company_logo)
+      icon = image_tag "icons/image_edit.png"
       content_tag :li do
         if company_logo
-          link_to "Update Company Logo", edit_company_logo_path(company_logo)
+          link_to icon + " update logo", edit_company_logo_path(company_logo)
         else
-          link_to "Update Company Logo", new_company_logo_path
+          link_to icon + " update logo", new_company_logo_path
         end
       end
   end

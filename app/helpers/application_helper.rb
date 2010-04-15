@@ -7,7 +7,8 @@ module ApplicationHelper
 
   def flash_notice
     if flash[:notice]
-      content_tag('div', h(flash[:notice]), { :id => "flash_notice" } )
+      close = link_to_remote image_tag("icons/cross.png", :style => "position:absolute;right:50px;top:7px;"), :complete => visual_effect(:Fade,"flash_notice", :duration => 3.0)
+      content_tag('div', h(flash[:notice]) + close, { :id => "flash_notice" })
     end
   end
   
