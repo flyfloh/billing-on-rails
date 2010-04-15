@@ -17,13 +17,15 @@
   <h2>Current Open Bills</h2>
 
   <%= render :partial => "bills/bills_table", :object => @bills %>
-  <%= link_to "Add a New Bill", new_bill_path %>
+  <br>
+  <%= link_to image_tag("icons/table_add.png") + " Add a new bill", new_bill_path %>
 </div>
 
 <div class="summary billed_expenditures">
   <h2>Unpaid Expenditures</h2>
   <%= render :partial => "expenditures/expenditures_table", :object => @expenditures %>
-  <%= link_to "Add a New Expenditure", new_expenditure_path %>
+  <br>
+  <%= link_to image_tag("icons/add.png") + " Add a new expenditure", new_expenditure_path %>
 </div>
 
 
