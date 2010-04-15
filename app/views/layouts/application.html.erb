@@ -14,9 +14,9 @@
       <%= link_to content_tag(:h1), root_url %>
       <ul id="navi">
         <% if current_user %>
-          <li><%= link_to "Balance", balance_path(:year => Time.now.year) %></li>
-          <li><%= link_to "Bills", bills_path %></li>
-          <li><%= link_to "Clients", clients_path %></li>
+          <li><%= link_to image_tag("icons/chart_curve.png") + " Balance", balance_path(:year => Time.now.year) %></li>
+          <li><%= link_to image_tag("icons/table.png")  + " Bills", bills_path %></li>
+          <li><%= link_to image_tag("icons/user.png") + " Clients", clients_path %></li>
           <li><%= link_to "Company", company_path(@user.company) %></li>
           <li><%= link_to "Expenditures", :controller => 'expenditures' %></li>
         <% end %>

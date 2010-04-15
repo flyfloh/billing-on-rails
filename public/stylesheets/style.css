@@ -54,3 +54,6 @@ div.find_bills {
 div.find_bills {
     width:66%;
 }
+a img {
+    border:0;
+}

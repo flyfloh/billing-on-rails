@@ -2,16 +2,12 @@
     <%= stylesheet_link_tag "company", :media => "all" %>
 <% end %>
 
-<%= company_logo(@company.company_logo) %>
-
-<div id="company_menu" class="summary">
-  <h2>Your Company</h2>
-  <p><%= @company.name %></p>
-  <ul>
-    <li><%= link_to "Update Company Data", edit_company_path(@company) %></li>
+<% content_for :subnavi do %>
+    <li><%= link_to image_tag("icons/email_edit.png") + " update data", edit_company_path(@company) %></li>
     <%= update_company_logo_link(@company.company_logo) %>
-  </ul>
-</div>
+<% end %>
+
+<%= company_logo(@company.company_logo) %>
 
 <div id="adress" class="summary">
   <h3>Adress</h3>

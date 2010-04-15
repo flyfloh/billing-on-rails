@@ -6,12 +6,12 @@ module BillsHelper
   
   def close_bill(bill)
     text = "close" if bill.state == 0
-    text = "mark as paid" if bill.state == 1
+    text = image_tag("icons/accept.png") + " mark as paid" if bill.state == 1
     return link_to text, close_bill_path(bill), :method => :post unless bill.state > 1
   end
   
   def destroy_bill(bill)
-    return link_to("destroy", bill_path(bill), :method => :delete, :confirm => "Are you sure?")
+    return link_to(image_tag("icons/delete.png") + " destroy", bill_path(bill), :method => :delete, :confirm => "Are you sure?")
   end
   
   def bill_state(bill)
