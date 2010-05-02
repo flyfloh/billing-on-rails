@@ -80,8 +80,14 @@ class Bill < ActiveRecord::Base
     # returns the state of a bill as a string
     # TODO: i might wanna find a better way to do this
     return 'Open' if self.state == 0
-    return "Billed since #{self.billed_date}" if self.state == 1
-    return 'Admonished' if self.state == 2
+    return "Billed since #{self.billed_date.strftime("%d.%m.%Y")}" if self.state == 1
+    if self.state == 2
+      if self.second_admonishion_date.nil?
+        return "Admonished once on #{self.first_admonishion_date.strftime("%d.%m.%Y")}"
+      else
+        return "Admonished twice, last on #{self.second_admonishion_date.strftime("%d.%m.%Y")}"
+      end
+    end
     return "Paid since #{self.paid_date}" if self.state == 3
     return "Deleted" if self.state == 10
     return 'Unknown'

@@ -26,7 +26,7 @@ class BillsController < ApplicationController
     @bill.user = current_user
     if @bill.save
       flash[:notice] = 'Bill successfully created.'
-      redirect_to :action => "show", :id => @bill.id
+      redirect_to @bill
     else
       render :action =>"new"
     end
@@ -46,7 +46,24 @@ class BillsController < ApplicationController
     else
       flash[:notice] = 'There was an error saving the bill!'
     end
-    redirect_to :action => "show", :id => @bill.id
+    redirect_to @bill
+  end
+
+  def admonish
+    @bill.state = 2
+    if @bill.first_admonishion_date.nil?
+      @bill.first_admonishion_date = Date.today
+    else
+      @bill.second_admonishion_date = Date.today
+    end
+    @position = Position.new(:count => 1, :price => 3, :tax => 19, :title => "Admonishion fee")
+    @bill.positions << @position
+    if @bill.save
+      redirect_to @bill
+    else
+      flash[:notice] = error_messages_for :bill
+      redirect_to @bill
+    end
   end
   
   def edit

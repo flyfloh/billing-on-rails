@@ -8,9 +8,6 @@
     margin: 5em auto 5em auto;
     width:100%;
 }
-p.state {
-    color:#f00;
-}
 
 
 /* this is safe */
@@ -57,10 +54,4 @@ div#mydata div {
 } 
 div#mydata div p{
     margin:0;
-}
-.state {
-    float:right;
-    font-style:italic;
-    margin:8px 30px;
-    text-align:right;
 }

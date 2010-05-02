@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
       :year => /\d+/
 
   #RESTful Routes
-  map.resources :bills, :member => { :close => :post}, :has_many => :positions
+  map.resources :bills, :member => { :close => :post, :admonish => :post}, :has_many => :positions
   map.resources :clients
   map.resources :expenditures
   map.resources :users, :only => [:new, :create]

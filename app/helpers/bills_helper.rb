@@ -4,10 +4,19 @@ module BillsHelper
     content_tag('tr', content_tag('td colspan="3"', 'No Bills')) if bills.empty?
   end
   
+  def admonish_bill(bill)
+    unless bill.state == 3 || !bill.second_admonishion_date.nil?
+      content_tag 'li', link_to("admonish", admonish_bill_path(bill), :method => :post)
+    end
+  end
+
   def close_bill(bill)
-    text = "close" if bill.state == 0
-    text = image_tag("icons/accept.png") + " mark as paid" if bill.state == 1
-    return link_to text, close_bill_path(bill), :method => :post unless bill.state > 1
+    if bill.state == 0
+      text = "close" if bill.state == 0
+    else
+      text = image_tag("icons/accept.png") + " mark as paid"
+    end
+    return content_tag 'li', link_to(text, close_bill_path(bill), :method => :post) unless bill.state == 3
   end
   
   def destroy_bill(bill)

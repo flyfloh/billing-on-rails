@@ -4,12 +4,13 @@
 <% end %>
 
 <% content_for :subnavi do %>
-<li><%= link_to image_tag("icons/textfield_add.png") + " new position", new_bill_position_path(@bill) %></li>
-<li><%= close_bill(@bill) %></li>
-<li><%= link_to image_tag("icons/table_edit.png") + " edit", edit_bill_path(@bill) %></li>
-<li><%= destroy_bill(@bill) %></li>
-<%= render :partial => "navigation" %>
-<p class="state">Bill State: <%= @bill.state_str %></p>
+  <li><%= link_to image_tag("icons/textfield_add.png") + " new position", new_bill_position_path(@bill) %></li>
+  <%= close_bill(@bill) %>
+  <%= admonish_bill(@bill) %>
+  <li><%= link_to image_tag("icons/table_edit.png") + " edit", edit_bill_path(@bill) %></li>
+  <li><%= destroy_bill(@bill) %></li>
+  <%= render :partial => "navigation" %>
+  <li>Bill State: <%= @bill.state_str %></li>
 <% end %>
 
 <ul id="bill_data">
@@ -19,7 +20,7 @@
   <li>Zahlung: <%= h @bill.payment %></li>
 </ul>
 
-<h2 class="company_logo"><%= image_tag "logo.gif", :alt => "Company Logo" %></h2>
+<h2 class="company_logo"><%= company_logo(@company.company_logo) %></h2>
 
 <p id="myadress">
   <%= h @company.name %>, Inh. <%= h @company.owner %>,

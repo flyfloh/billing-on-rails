@@ -25,7 +25,6 @@ a:hover {
     width:100%;
     margin: 0;
     background: url('../images/h1bg.png') repeat-x;
-    font-weight:bold;
 }
 #navi {
     margin:0;
@@ -64,7 +63,9 @@ a:hover {
     list-style-type:none;
     margin:0;
     border-bottom:2px solid #ddd;
-    padding:5px;
+    padding:5px 5px 5px 15px;
+    font-weight:bold;
+    font-size:11px;
 }
 #subnavi li:last-child {
     border-bottom:0;
@@ -77,9 +78,6 @@ a:hover {
 }
 #subnavi li a {
     color:#777;
-    font-weight:bold;
-    font-size:11px;
-    padding-left:10px;
 }
 #subnavi li a:hover {
     text-decoration:none;

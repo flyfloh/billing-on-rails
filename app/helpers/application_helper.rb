@@ -1,6 +1,16 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def company_logo(company_logo)
+    content_tag :div, :class => "company_logo" do
+      if company_logo
+        image_tag(company_logo_path(company_logo), :alt => "Company Logo")
+      else
+        image_tag("icons/user_suit.png", :alt => "Dummy Company Logo")
+      end
+    end
+  end
+
   def title(page_title)
     content_for(:title) { page_title }
   end

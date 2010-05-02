@@ -1,15 +1,5 @@
 module CompaniesHelper
 
-  def company_logo(company_logo)
-    content_tag :div, :class => "company_logo" do
-      if company_logo
-        image_tag(company_logo_path(company_logo), :alt => "Company Logo")
-      else
-        image_tag("icons/user_suit.png", :alt => "Dummy Company Logo")
-      end
-    end
-  end
-
   def update_company_logo_link(company_logo)
       icon = image_tag "icons/image_edit.png"
       content_tag :li do
